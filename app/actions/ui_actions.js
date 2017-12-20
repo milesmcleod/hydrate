@@ -8,6 +8,14 @@ const showSettings = () => ({
   type: SHOW_SETTINGS
 });
 
-const showInitial = () => ({
+const hideSettings = () => ({
+  type: HIDE_SETTINGS
+});
+
+const showSetup = () => ({
   type: SHOW_SETUP
+});
+
+const hideSetup = () => ({
+  type: HIDE_SETUP
 });

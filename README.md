@@ -18,3 +18,19 @@
   * Simple MongoDB configuration that stores how often users drink ( this is to track data, not to actually carry out frontend notifications; individual user preferences are stored on the user's device), hosted on mLab.
   * Express API with simple routes, hosted on Heroku.
   * Node.JS runtime environment
+
+### Sample State
+
+```Javascript
+  {
+    entities: {
+      frequency: 8,
+      fact: "This is a placeholder for a fact about water"
+    },
+    ui: {
+      showSetup: true,
+      showSettings: true,
+      time: currentTime
+    }
+  }
+```
