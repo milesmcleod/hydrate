@@ -6,7 +6,7 @@ import {
   View
 } from 'react-native';
 import { mainStyles } from '../styles/main_styles.js';
-import Home from './home/home.js';
+import HomeContainer from './home/home_container.js';
 
 
 const instructions = Platform.select({
@@ -23,7 +23,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Home />
+      <HomeContainer />
     );
   }
 }

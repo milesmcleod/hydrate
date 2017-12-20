@@ -4,18 +4,18 @@ export const HIDE_SETTINGS = "HIDE_SETTINGS";
 export const SHOW_SETUP = "SHOW_SETUP";
 export const HIDE_SETUP = "HIDE_SETUP";
 
-const showSettings = () => ({
+export const showSettings = () => ({
   type: SHOW_SETTINGS
 });
 
-const hideSettings = () => ({
+export const hideSettings = () => ({
   type: HIDE_SETTINGS
 });
 
-const showSetup = () => ({
+export const showSetup = () => ({
   type: SHOW_SETUP
 });
 
-const hideSetup = () => ({
+export const hideSetup = () => ({
   type: HIDE_SETUP
 });

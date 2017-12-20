@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 import {
   RECEIVE_FREQUENCY,
-  CLEAR_FREQUENCY
+  CLEAR_FREQUENCY,
+  RECEIVE_NEW_FACT
 } from '../actions/entities_actions';
 import merge from 'lodash/merge';
 
@@ -19,6 +20,10 @@ const EntitiesReducer = (state = initialState, action) => {
     case CLEAR_FREQUENCY:
       newState = merge({}, state);
       newState["frequency"] = null;
+      return newState;
+    case RECEIVE_NEW_FACT:
+      newState = merge({}, state);
+      newState["fact"] = action.payload.fact;
       return newState;
     default:
       return state;

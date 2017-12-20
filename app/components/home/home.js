@@ -11,27 +11,45 @@ import {
   mainStyles,
   initialStyles
 } from '../../styles/main_styles.js';
-import Initial from '../setup/setup.js';
+import Setup from '../setup/setup.js';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      frequency: undefined
+    };
+    this.display = <View></View>;
+  }
+
+  componentDidMount() {
+    AsyncStorage.getItem("frequency")
+    .then((value) => {
+      this.props.receiveFrequency(value);
+      this.setState({
+        frequency: value
+      });
+    })
+    .then(() => {
+      if (!this.props.frequency) {
+        this.props.showSetup();
+      }
+    })
+    .done();
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.showSetup) {
+      this.display = <Setup />;
+    } else if (this.props.showSettings) {
+      this.display = <Settings />;
+    }
   }
 
   render() {
-    let show = <Initial />;
-
-
-
-    const setup = <Text
-      style={mainStyles.welcome}
-      >Initial</Text>;
-    const settings = <Text
-      style={mainStyles.welcome}
-      >Settings</Text>;
     return (
       <View style={mainStyles.container}>
-        {show}
+        {this.display}
       </View>
     );
   }
