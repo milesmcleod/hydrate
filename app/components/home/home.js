@@ -10,8 +10,8 @@ import {
 import {
   mainStyles,
   initialStyles
-} from '../styles/main.js';
-import Initial from './initial.js';
+} from '../../styles/main_styles.js';
+import Initial from '../setup/setup.js';
 
 class Home extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class Home extends React.Component {
 
 
 
-    const initial = <Text
+    const setup = <Text
       style={mainStyles.welcome}
       >Initial</Text>;
     const settings = <Text

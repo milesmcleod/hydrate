@@ -5,10 +5,9 @@ import {
   Text,
   View
 } from 'react-native';
-import { mainStyles } from '../styles/main.js';
-import Home from './home.js';
-import Initial from './initial.js';
-import Settings from './settings.js';
+import { mainStyles } from '../styles/main_styles.js';
+import Home from './home/home.js';
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +

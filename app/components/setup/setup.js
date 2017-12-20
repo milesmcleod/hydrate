@@ -7,9 +7,9 @@ import {
   AsyncStorage,
   View
 } from 'react-native';
-import { initialStyles } from '../styles/main.js';
+import SetupStyles from '../../styles/setup_styles.js';
 
-class Initial extends React.Component {
+class Setup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,10 +32,10 @@ class Initial extends React.Component {
 
   render() {
     return (
-      <View style={initialStyles.container}>
+      <View style={SetupStyles.container}>
         <Text>Input initial value</Text>
         <TextInput
-          style={initialStyles.formInput}
+          style={SetupStyles.formInput}
           onChangeText={(value) => this.saveFrequency(value)}
           value={this.state.frequency}
           ></TextInput>
@@ -44,4 +44,4 @@ class Initial extends React.Component {
   }
 }
 
-export default Initial;
+export default Setup;
