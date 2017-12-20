@@ -13,9 +13,9 @@ const FrequencyReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_FREQUENCY:
       const freq = action.frequency;
-      return merge({}, state, { freq });
+      return freq;
     case CLEAR_FREQUENCY:
-      return {};
+      return null;
     default:
       return state;
   }

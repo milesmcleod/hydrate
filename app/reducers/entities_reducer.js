@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
-import EntitiesReducer from './entities_reducer';
-import FrequencyReducer from './frequency_reducer';
+import FrequencyReducer from './frequency_reducer.js';
 
-const RootReducer = combineReducers({
+const EntitiesReducer = combineReducers({
   frequency: FrequencyReducer
 });
 
-export default RootReducer;
+export default EntitiesReducer;
