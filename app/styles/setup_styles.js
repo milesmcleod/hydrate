@@ -15,5 +15,12 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: "#000000",
     opacity: 0.5
+  },
+  button: {
+    height: 26,
+    fontSize: 13,
+    borderWidth: 1,
+    borderColor: "#000000",
+    color: "#FFFFFF"
   }
 });

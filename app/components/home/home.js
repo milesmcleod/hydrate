@@ -8,10 +8,9 @@ import {
   AsyncStorage
 } from 'react-native';
 import {
-  mainStyles,
-  initialStyles
+  mainStyles
 } from '../../styles/main_styles.js';
-import Setup from '../setup/setup.js';
+import SetupContainer from '../setup/setup.js';
 
 class Home extends React.Component {
   constructor(props) {
@@ -40,10 +39,21 @@ class Home extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (this.props.showSetup) {
-      this.display = <Setup />;
+      this.display = <SetupContainer />;
     } else if (this.props.showSettings) {
       this.display = <Settings />;
-    }
+    } else (
+      this.display = (
+        <View style={mainStyles.container}>
+          <Text
+            style={mainStyles.welcome}
+            >Current Frequency:</Text>
+          <Text
+            style={mainStyles.welcome}
+            >{this.props.frequency}</Text>
+        </View>
+      )
+    );
   }
 
   render() {

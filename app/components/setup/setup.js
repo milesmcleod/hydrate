@@ -5,6 +5,7 @@ import {
   Text,
   TextInput,
   AsyncStorage,
+  Button,
   View
 } from 'react-native';
 import SetupStyles from '../../styles/setup_styles.js';
@@ -17,9 +18,16 @@ class Setup extends React.Component {
     };
   }
 
-  saveFrequency(value) {
+  updateFrequency(value) {
+    value = Number(value.replace(/[^0-9]/g, ''));
+    if (value < 10) this.setState({ frequency: value });
+  }
+
+  saveFrequency() {
+    const value = this.state.frequency;
     AsyncStorage.setItem("frequency", value);
-    this.setState({ frequency: value });
+    this.props.receiveFrequency(value);
+    this.props.hideSetup();
   }
 
   componentDidMount() {
@@ -31,14 +39,26 @@ class Setup extends React.Component {
   }
 
   render() {
+    let inputValue;
+    if (!this.state.frequency) {
+      inputValue = '';
+    } else {
+      inputValue = String(this.state.frequency).slice(0, 1);
+    }
     return (
       <View style={SetupStyles.container}>
         <Text>Input initial value</Text>
         <TextInput
           style={SetupStyles.formInput}
-          onChangeText={(value) => this.saveFrequency(value)}
-          value={this.state.frequency}
+          keyboardType = 'numeric'
+          onChangeText={(value) => this.updateFrequency(value)}
+          value={inputValue}
           ></TextInput>
+        <Button
+          onPress={() => this.saveFrequency()}
+          title="Save"
+          style={SetupStyles.button}
+        />
       </View>
     );
   }
