@@ -6,7 +6,8 @@ import {
   TextInput,
   Button,
   AsyncStorage,
-  View
+  View,
+  Modal
 } from 'react-native';
 import { mainStyles } from '../../styles/main_styles.js';
 import SetupStyles from '../../styles/setup_styles.js';
@@ -21,14 +22,16 @@ class Settings extends React.Component {
 
   updateFrequency(value) {
     value = Number(value.replace(/[^0-9]/g, ''));
-    if (value < 10) this.setState({ frequency: value });
+    if (value < 10 && value >= 0) this.setState({ frequency: value });
   }
 
   saveFrequency() {
     const value = String(this.state.frequency);
-    AsyncStorage.setItem("frequency", value);
-    this.props.receiveFrequency(value);
-    this.props.hideSettings();
+    if (value) {
+      AsyncStorage.setItem("frequency", value);
+      this.props.receiveFrequency(value);
+      this.props.hideSettings();
+    }
   }
 
   componentDidMount() {
@@ -47,7 +50,12 @@ class Settings extends React.Component {
       inputValue = String(this.state.frequency).slice(0, 1);
     }
     return (
-      <View style={SetupStyles.container}>
+      <Modal
+        trasparent
+        animationType={"fade"}
+        visible={this.props.show}
+        style={SetupStyles.container}
+        >
         <Text>Edit value:</Text>
         <TextInput
           style={SetupStyles.formInput}
@@ -60,7 +68,7 @@ class Settings extends React.Component {
           title="Save"
           style={SetupStyles.button}
         />
-      </View>
+      </Modal>
     );
   }
 }

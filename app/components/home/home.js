@@ -5,7 +5,8 @@ import {
   Text,
   TextInput,
   View,
-  Button,
+  TouchableHighlight,
+  Modal,
   AsyncStorage
 } from 'react-native';
 import {
@@ -21,7 +22,6 @@ class Home extends React.Component {
     this.state = {
       frequency: undefined
     };
-    this.display = <View></View>;
   }
 
   componentDidMount() {
@@ -40,39 +40,28 @@ class Home extends React.Component {
     .done();
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.setup === true) {
-      this.display = <SetupContainer />;
-    } else if (newProps.settings === true) {
-      this.display = <SettingsContainer />;
-    } else (
-      this.display = (
+  render() {
+    return (
+      <View style={mainStyles.container}>
+        <SetupContainer />
+        <SettingsContainer />
         <View style={mainStyles.container}>
-          <Text
-            style={mainStyles.welcome}
-            >{newProps.setup}</Text>
           <Text
             style={mainStyles.welcome}
             >Current Frequency:</Text>
           <Text
             style={mainStyles.welcome}
-            >{newProps.frequency}</Text>
-            <Button
-              onPress={() => {
-                this.props.showSettings();
-              }}
-              title="Edit Frequency"
-              style={SetupStyles.button}
-            />
+            >{this.props.frequency}</Text>
+          <TouchableHighlight
+            onPress={() => {
+              this.props.showSettings();
+            }}
+            >
+            <Text
+              style={mainStyles.welcome}
+              >Settings</Text>
+          </TouchableHighlight>
         </View>
-      )
-    );
-  }
-
-  render() {
-    return (
-      <View style={mainStyles.container}>
-        {this.display}
       </View>
     );
   }

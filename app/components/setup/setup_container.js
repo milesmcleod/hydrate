@@ -10,7 +10,7 @@ import Setup from './setup.js';
 
 const mapStateToProps = (state) => {
   return ({
-
+    show: state.ui.showSetup
   });
 };
 
