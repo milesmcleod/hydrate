@@ -5,12 +5,15 @@ import {
   Text,
   TextInput,
   View,
+  Button,
   AsyncStorage
 } from 'react-native';
 import {
   mainStyles
 } from '../../styles/main_styles.js';
-import SetupContainer from '../setup/setup.js';
+import SetupStyles from '../../styles/setup_styles.js';
+import SetupContainer from '../setup/setup_container.js';
+import SettingsContainer from '../settings/settings_container.js';
 
 class Home extends React.Component {
   constructor(props) {
@@ -38,19 +41,29 @@ class Home extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.showSetup) {
+    if (newProps.setup === true) {
       this.display = <SetupContainer />;
-    } else if (this.props.showSettings) {
-      this.display = <Settings />;
+    } else if (newProps.settings === true) {
+      this.display = <SettingsContainer />;
     } else (
       this.display = (
         <View style={mainStyles.container}>
           <Text
             style={mainStyles.welcome}
+            >{newProps.setup}</Text>
+          <Text
+            style={mainStyles.welcome}
             >Current Frequency:</Text>
           <Text
             style={mainStyles.welcome}
-            >{this.props.frequency}</Text>
+            >{newProps.frequency}</Text>
+            <Button
+              onPress={() => {
+                this.props.showSettings();
+              }}
+              title="Edit Frequency"
+              style={SetupStyles.button}
+            />
         </View>
       )
     );

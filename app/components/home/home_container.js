@@ -16,8 +16,8 @@ const mapStateToProps = (state) => {
   return ({
     frequency: state.entities.frequency,
     fact: state.entities.fact,
-    showSetup: state.ui.showSetup,
-    showSettings: state.ui.showSettings,
+    setup: state.ui.showSetup,
+    settings: state.ui.showSettings,
     time: state.ui.time
   });
 };

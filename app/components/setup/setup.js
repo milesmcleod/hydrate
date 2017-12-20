@@ -24,7 +24,7 @@ class Setup extends React.Component {
   }
 
   saveFrequency() {
-    const value = this.state.frequency;
+    const value = String(this.state.frequency);
     AsyncStorage.setItem("frequency", value);
     this.props.receiveFrequency(value);
     this.props.hideSetup();
