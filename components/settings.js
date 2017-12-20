@@ -5,10 +5,11 @@ import {
   Text,
   View
 } from 'react-native';
+import { mainStyles } from '../styles/main.js';
 
 class Settings extends React.Component {
-  constructor() {
-
+  constructor(props) {
+    super(props);
   }
 
   render() {

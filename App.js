@@ -6,6 +6,9 @@ import {
   View
 } from 'react-native';
 import { mainStyles } from './styles/main.js';
+import Home from './components/home.js';
+import Initial from './components/initial.js';
+import Settings from './components/settings.js';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -15,11 +18,13 @@ const instructions = Platform.select({
 });
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <View style={mainStyles.container}>
-
-      </View>
+      <Home />
     );
   }
 }
