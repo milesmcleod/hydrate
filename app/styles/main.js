@@ -19,13 +19,6 @@ export const mainStyles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
-  formInput: {
-    flex: 1,
-    height: 26,
-    fontSize: 13,
-    borderWidth: 1,
-    borderColor: "#000000",
-  }
 });
 
 export const initialStyles = StyleSheet.create({
@@ -42,5 +35,6 @@ export const initialStyles = StyleSheet.create({
     fontSize: 13,
     borderWidth: 1,
     borderColor: "#000000",
+    opacity: 0.5
   }
 });
