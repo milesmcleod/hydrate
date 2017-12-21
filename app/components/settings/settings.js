@@ -59,7 +59,7 @@ class Settings extends React.Component {
         <Text>Edit value:</Text>
         <TextInput
           style={SetupStyles.formInput}
-          keyboardType = 'numeric'
+          keyboardType={'numeric'}
           onChangeText={(value) => this.updateFrequency(value)}
           value={inputValue}
           ></TextInput>
