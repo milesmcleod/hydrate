@@ -74,3 +74,6 @@ class Settings extends React.Component {
 }
 
 export default Settings;
+
+// going to need inputs for beginning and ending hours that demarcate
+// the interval between which the notifications can happen
