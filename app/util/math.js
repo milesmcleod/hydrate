@@ -1,3 +1,5 @@
+import RNLocalNotifications from 'react-native-local-notifications';
+
 class Math {
 
   constructor(options) {
@@ -20,7 +22,7 @@ class Math {
   }
 
   notify() {
-
+    RNLocalNotifications.createNotification(1, 'Drink water, dangus', '2018-01-21 1:00', 'default');
   }
 
   generateTimeouts() {
