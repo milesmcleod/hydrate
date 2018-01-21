@@ -15,7 +15,7 @@ import {
 import SetupStyles from '../../styles/setup_styles.js';
 import SetupContainer from '../setup/setup_container.js';
 import SettingsContainer from '../settings/settings_container.js';
-import Util from '../../util/math.js';
+import Util from '../../util/util.js';
 
 class Home extends React.Component {
   constructor(props) {
@@ -50,6 +50,7 @@ class Home extends React.Component {
   }
 
   render() {
+    console.log('cool!');
     return (
       <View style={mainStyles.container}>
         <SetupContainer />
