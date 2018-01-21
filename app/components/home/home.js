@@ -15,6 +15,7 @@ import {
 import SetupStyles from '../../styles/setup_styles.js';
 import SetupContainer from '../setup/setup_container.js';
 import SettingsContainer from '../settings/settings_container.js';
+import Util from '../../util/math.js';
 
 class Home extends React.Component {
   constructor(props) {
@@ -36,6 +37,14 @@ class Home extends React.Component {
       if (!this.props.frequency) {
         this.props.showSetup();
       }
+    })
+    .then(() => {
+      const x = new Util();
+      x.notify(
+        1,
+        'drink water dangus',
+        'silence'
+      );
     })
     .done();
   }

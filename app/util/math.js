@@ -1,4 +1,4 @@
-import RNLocalNotifications from 'react-native-local-notifications';
+// import RNPushNotifications from 'react-native-push-notifications';
 
 class Math {
 
@@ -7,9 +7,9 @@ class Math {
     this.notify = this.notify.bind(this);
     this.generateTimeouts = this.generateTimeouts.bind(this);
 
-    this.frequency = options.frequency;
-    this.startTime = options.startTime; // milleseconds since midnight
-    this.endTime = options.endTime; // milliseconds since midnight
+    // this.frequency = options.frequency;
+    // this.startTime = options.startTime; // milleseconds since midnight
+    // this.endTime = options.endTime; // milliseconds since midnight
 
     this.moments = [];
     this.timeoutIds = [];
@@ -21,8 +21,17 @@ class Math {
     this.currentMoment = this.currentDate.getTime(); // milliseconds
   }
 
-  notify() {
-    RNLocalNotifications.createNotification(1, 'Drink water, dangus', '2018-01-21 1:00', 'default');
+  notify(id, text, sound) {
+    const dateString = new Date(this.currentMoment).toJSON();
+    const date = dateString.slice(0, 10);
+    const time = dateString.slice(11, 16);
+    const dateArgument = `${date} ${time}`;
+    // RNPushNotifications.createNotification(
+    //   id,
+    //   text,
+    //   dateArgument,
+    //   sound
+    // );
   }
 
   generateTimeouts() {
@@ -55,3 +64,5 @@ class Math {
   }
 
 }
+
+export default Math;
