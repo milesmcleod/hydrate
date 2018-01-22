@@ -2,8 +2,12 @@ import PushNotificationIOS from 'react-native/Libraries/PushNotificationIOS/Push
 
 class Notifications {
 
-  constructor() {
-    this.midnightID = undefined;
+  constructor(timeoutID) {
+    if (timeoutID) {
+      this.timeoutID = timeoutID;
+    } else {
+      this.timeoutID = undefined;
+    }
   }
 
   getCurrentMoment() {
@@ -23,7 +27,7 @@ class Notifications {
 
   clearAllNotifications() {
     PushNotificationIOS.cancelLocalNotifications();
-    clearTimeout(this.midnightID);
+    clearTimeout(this.timeoutID);
     console.log('notifications cleared');
   }
 
@@ -72,7 +76,7 @@ class Notifications {
       this.setDayNotifications(interval, startHour, endHour);
       this.setFutureNotifications(interval, startHour, endHour);
     });
-    console.log(`future set, timeout id: ${this.midnightID}`);
+    console.log(`future set, timeout id: ${this.timeoutID}`);
   }
 
   setMidnightInterval(callback) {
@@ -82,7 +86,7 @@ class Notifications {
     const currentMoment = currentDate.getTime(); // milliseconds
     const msPerDay = (24 * 60 * 60 * 1000);
     const msTilMidnight = msPerDay - (currentMoment % msPerDay);
-    this.midnightID = setTimeout(callback, msTilMidnight);
+    this.timeoutID = setTimeout(callback, msTilMidnight);
   }
 
 }

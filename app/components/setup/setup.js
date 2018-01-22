@@ -38,6 +38,11 @@ class Setup extends React.Component {
       .then(() => this.props.receiveEnd(end))
       .then(() => this.props.hideSetup());
     }
+    let notificationObject = new Notifications();
+    notificationObject.clearAllNotifications();
+    notificationObject.setDayNotifications(interval, start, end);
+    notificationObject.setFutureNotifications(interval, start, end);
+    this.props.receiveNotificationObject(notificationObject.timeoutID);
   }
 
   componentDidMount() {
@@ -76,6 +81,7 @@ class Setup extends React.Component {
           onValueChange={(itemValue, itemIndex) => {
             this.setState({interval: itemValue});
           }}>
+          <Picker.Item label="1 Minute" value={`${60 * 1000}`} />
           <Picker.Item label="15 Minutes" value={`${15 * 60 * 1000}`} />
           <Picker.Item label="30 Minutes" value={`${30 * 60 * 1000}`} />
           <Picker.Item label="45 Minutes" value={`${45 * 60 * 1000}`} />

@@ -12,7 +12,8 @@ import Settings from './settings.js';
 
 const mapStateToProps = (state) => {
   return ({
-    show: state.ui.showSettings
+    show: state.ui.showSettings,
+    notificationTimeoutID: state.notification.timeoutID
   });
 };
 

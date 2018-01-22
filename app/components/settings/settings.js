@@ -37,12 +37,10 @@ class Settings extends React.Component {
       .then(() => this.props.receiveEnd(end))
       .then(() => this.props.hideSettings());
     }
-    let xNotifications = new Notifications();
-    console.log('beans start ' + start);
-    console.log('beans end ' + end);
-    xNotifications.clearAllNotifications();
-    xNotifications.setDayNotifications(interval, start, end);
-    xNotifications.setFutureNotifications(interval, start, end);
+    let notificationObject = new Notifications(this.props.notificationTimeoutID);
+    notificationObject.clearAllNotifications();
+    notificationObject.setDayNotifications(interval, start, end);
+    notificationObject.setFutureNotifications(interval, start, end);
   }
 
   componentDidMount() {

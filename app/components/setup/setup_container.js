@@ -8,6 +8,9 @@ import {
   receiveStart,
   receiveEnd
 } from '../../actions/entities_actions.js';
+import {
+  receiveNotificationObject
+} from '../../actions/notification_actions.js';
 import Setup from './setup.js';
 
 const mapStateToProps = (state) => {
@@ -21,7 +24,10 @@ const mapDispatchToProps = (dispatch) => {
     hideSetup: () => dispatch(hideSetup()),
     receiveInterval: (freq) => dispatch(receiveInterval(freq)),
     receiveStart: (freq) => dispatch(receiveStart(freq)),
-    receiveEnd: (freq) => dispatch(receiveEnd(freq))
+    receiveEnd: (freq) => dispatch(receiveEnd(freq)),
+    receiveNotificationObject: (object) => dispatch(
+      receiveNotificationObject(object)
+    )
   });
 };
 
