@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import Styles from './stylesheet.js';
+
 export const settingsStyles = StyleSheet.create({
   container: {
     flex: 1,
@@ -13,7 +15,7 @@ export const settingsStyles = StyleSheet.create({
     padding: 30
   },
   text: {
-    fontSize: 20,
+    fontSize: Styles.FONT_SIZE_SMALL,
     textAlign: 'center',
     color: '#000000',
     margin: 10,
@@ -23,11 +25,11 @@ export const settingsStyles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#1f1f1f',
     borderRadius: 5,
-    padding: 10,
+    padding: (Styles.DEVICE_WIDTH / 50),
     margin: 40
   },
   buttonText: {
-    fontSize: 20,
+    fontSize: Styles.FONT_SIZE_SMALL,
     textAlign: 'center',
     color: '#FFFFFF',
     fontFamily: 'AvenirNext-DemiBold',

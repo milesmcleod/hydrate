@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import Styles from './stylesheet.js';
+
 export const setupStyles = StyleSheet.create({
   container: {
     padding: 30,
@@ -12,7 +14,7 @@ export const setupStyles = StyleSheet.create({
     borderRadius: 10,
   },
   text: {
-    fontSize: 20,
+    fontSize: Styles.FONT_SIZE_SMALL,
     textAlign: 'center',
     color: '#FFFFFF',
     margin: 5,
@@ -35,7 +37,7 @@ export const setupStyles = StyleSheet.create({
     borderRadius: 2,
     borderWidth: 2,
     borderColor: '#ffffff',
-    padding: 10,
-    marginBottom: 50
+    padding: (Styles.DEVICE_WIDTH / 30),
+    marginBottom: (Styles.DEVICE_WIDTH / 10)
   }
 });

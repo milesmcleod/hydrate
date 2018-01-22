@@ -1,19 +1,21 @@
 import { StyleSheet } from 'react-native';
 
+import Styles from './stylesheet.js';
+
 export const mainStyles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
     backgroundColor: 'rgba(52, 52, 52, 0.0)',
-    padding: 30
+    padding: (Styles.DEVICE_WIDTH / 15)
   },
   invisible: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
     backgroundColor: 'rgba(52, 52, 52, 0.0)',
-    padding: 30,
+    padding: (Styles.DEVICE_WIDTH / 15),
     opacity: 0
   },
   innerContainer: {
@@ -21,25 +23,28 @@ export const mainStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'stretch',
     backgroundColor: 'rgba(52, 52, 52, 0.0)',
-    padding: 30
+    padding: (Styles.DEVICE_WIDTH / 15)
   },
   logo: {
-    fontSize: 40,
+    fontSize: (1.75 * Styles.FONT_SIZE),
     textAlign: 'center',
     color: '#FFFFFF',
     margin: 10,
-    marginTop: 60,
+    marginTop: (Styles.DEVICE_WIDTH / 9),
     fontFamily: 'AvenirNext-Heavy'
   },
   text: {
-    fontSize: 20,
+    fontSize: Styles.FONT_SIZE_SMALL,
     textAlign: 'center',
     color: '#FFFFFF',
-    margin: 10,
+    marginBottom: 10,
+    marginRight: 5,
+    marginLeft: 5,
+    marginTop: 10,
     fontFamily: 'AvenirNext-DemiBold',
   },
   data: {
-    fontSize: 20,
+    fontSize: Styles.FONT_SIZE_SMALL,
     textAlign: 'center',
     color: '#FFFFFF',
     margin: 10,
@@ -49,6 +54,6 @@ export const mainStyles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     borderRadius: 4,
-    padding: 10
+    padding: (Styles.DEVICE_WIDTH / 40)
   }
 });
