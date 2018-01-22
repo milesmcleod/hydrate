@@ -21,7 +21,7 @@ class Slide3 extends React.Component {
             style={slideStyles.button}
             onPress={() => {
               this.props.hideSlides();
-              this.props.showHome();
+              this.props.showSetup();
             }}
             >
             <Text

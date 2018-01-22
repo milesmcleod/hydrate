@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {
   hideSlides,
-  showHome,
+  showSetup,
 } from '../../actions/ui_actions.js';
 import Slides from './slides.js';
 
@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     hideSlides: () => dispatch(hideSlides()),
-    showHome: () => dispatch(showHome())
+    showSetup: () => dispatch(showSetup())
   });
 };
 

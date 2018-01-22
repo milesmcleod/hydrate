@@ -1,4 +1,5 @@
 import React from 'react';
+import PushNotificationIOS from 'react-native/Libraries/PushNotificationIOS/PushNotificationIOS.js';
 
 import {
   Text,
@@ -17,6 +18,10 @@ class Slides extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    PushNotificationIOS.requestPermissions();
+  }
+
   render() {
     return (
       <Modal
@@ -27,7 +32,7 @@ class Slides extends React.Component {
           <Slide1 />
           <Slide2 />
           <Slide3
-            showHome={this.props.showHome}
+            showSetup={this.props.showSetup}
             hideSlides={this.props.hideSlides}
             />
         </Swiper>

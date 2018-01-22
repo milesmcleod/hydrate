@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  hideSetup
+  hideSetup,
+  showHome
 } from '../../actions/ui_actions.js';
 import {
   receiveInterval,
@@ -22,6 +23,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     hideSetup: () => dispatch(hideSetup()),
+    showHome: () => dispatch(showHome()),
     receiveInterval: (freq) => dispatch(receiveInterval(freq)),
     receiveStart: (freq) => dispatch(receiveStart(freq)),
     receiveEnd: (freq) => dispatch(receiveEnd(freq)),

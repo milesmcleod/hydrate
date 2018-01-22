@@ -1,13 +1,24 @@
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
+export const setupStyles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 30,
     margin: 30,
-    justifyContent: 'center',
-    alignItems: 'stretch',
-    backgroundColor: '#BDBDBD',
+  },
+  scrollContainer: {
+    padding: 30,
+    margin: 30,
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    borderRadius: 10,
+  },
+  text: {
+    fontSize: 20,
+    textAlign: 'center',
+    color: '#FFFFFF',
+    margin: 10,
+  },
+  picker: {
+    color: '#FFFFFF'
   },
   formInput: {
     height: 26,
@@ -17,10 +28,9 @@ export default StyleSheet.create({
     opacity: 0.5
   },
   button: {
-    height: 26,
-    fontSize: 13,
-    borderWidth: 1,
-    borderColor: "#000000",
-    color: "#FFFFFF"
+    alignItems: 'center',
+    backgroundColor: '#1f1f1f',
+    borderRadius: 10,
+    padding: 10
   }
 });

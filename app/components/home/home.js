@@ -48,11 +48,6 @@ class Home extends React.Component {
         end: value
       });
     })
-    .then(() => {
-      if (!this.state.interval) {
-        this.props.showSetup();
-      }
-    })
     .done();
   }
 
