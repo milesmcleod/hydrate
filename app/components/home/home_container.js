@@ -22,6 +22,7 @@ import Home from './home.js';
 
 const mapStateToProps = (state) => {
   return ({
+    show: state.ui.showHome,
     interval: state.entities.interval,
     start: state.entities.start,
     end: state.entities.end,

@@ -1,25 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  showSlide2,
-  hideSlide1
+  hideSlides,
+  showHome,
 } from '../../actions/ui_actions.js';
-import Slide1 from './slide1.js';
+import Slides from './slides.js';
 
 const mapStateToProps = (state) => {
   return ({
-    show: state.ui.showSlide1
+    show: state.ui.showSlides
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    showSlide2: () => dispatch(showSlide2()),
-    hideSlide1: () => dispatch(hideSlide1()),
+    hideSlides: () => dispatch(hideSlides()),
+    showHome: () => dispatch(showHome())
   });
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Slide1);
+)(Slides);

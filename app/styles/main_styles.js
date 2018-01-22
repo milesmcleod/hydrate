@@ -5,14 +5,22 @@ export const mainStyles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: '#0068FF',
+    backgroundColor: 'rgba(52, 52, 52, 0.0)',
+    padding: 30
+  },
+  invisible: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    backgroundColor: 'rgba(52, 52, 52, 0.0)',
     padding: 30,
+    opacity: 0
   },
   innerContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'stretch',
-    backgroundColor: '#0068FF',
+    backgroundColor: 'rgba(52, 52, 52, 0.0)',
     padding: 30
   },
   logo: {

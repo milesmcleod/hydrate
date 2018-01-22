@@ -17,6 +17,17 @@ class Slide3 extends React.Component {
     return (
       <View style={slideStyles.container}>
         <Text>Slide 3</Text>
+          <TouchableHighlight
+            style={slideStyles.button}
+            onPress={() => {
+              this.props.hideSlides();
+              this.props.showHome();
+            }}
+            >
+            <Text
+              style={slideStyles.text}
+              >Done!</Text>
+          </TouchableHighlight>
       </View>
     );
   }

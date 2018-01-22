@@ -13,6 +13,7 @@
     "react-native": "0.51.0",
     "react-native-local-notifications": "^1.0.0",
     "react-native-push-notification": "^3.0.2",
+    "react-native-swiper": "^1.5.13",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
