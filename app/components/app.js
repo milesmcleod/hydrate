@@ -13,7 +13,8 @@ import SetupContainer from './setup/setup_container.js';
 import IntervalContainer from './interval_settings/interval_container.js';
 import StartContainer from './start_settings/start_container.js';
 import EndContainer from './end_settings/end_container.js';
-import Black from './backgrounds/black.js';
+import Scape from './backgrounds/scape.js';
+import Clouds from './backgrounds/clouds.js';
 import SlidesContainer from './intro/slides_container.js';
 
 
@@ -69,7 +70,8 @@ class App extends React.Component {
   render() {
     return (
       <View style={mainStyles.container}>
-        <Black />
+        <Scape />
+        <Clouds />
         <SlidesContainer />
         <SetupContainer />
         <HomeContainer />
