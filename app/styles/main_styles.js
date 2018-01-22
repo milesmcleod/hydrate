@@ -3,20 +3,46 @@ import { StyleSheet } from 'react-native';
 export const mainStyles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'stretch',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
     backgroundColor: '#0068FF',
     padding: 30,
   },
-  welcome: {
+  innerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    backgroundColor: '#0068FF',
+    padding: 30
+  },
+  logo: {
+    fontSize: 40,
+    textAlign: 'center',
+    color: '#FFFFFF',
+    margin: 10,
+  },
+  text: {
     fontSize: 20,
     textAlign: 'center',
     color: '#FFFFFF',
     margin: 10,
   },
-  instructions: {
+  data: {
+    fontSize: 20,
     textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    color: '#bdbdbd',
+    margin: 10,
   },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#1f1f1f',
+    borderRadius: 2,
+    padding: 10
+  },
+  settingsText: {
+    fontSize: 20,
+    textAlign: 'center',
+    color: '#FFFFFF',
+    margin: 10,
+  }
 });

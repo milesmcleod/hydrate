@@ -41,6 +41,7 @@ class Settings extends React.Component {
     notificationObject.clearAllNotifications();
     notificationObject.setDayNotifications(interval, start, end);
     notificationObject.setFutureNotifications(interval, start, end);
+    this.props.receiveNotificationObject(notificationObject.timeoutID);
   }
 
   componentDidMount() {
@@ -68,7 +69,7 @@ class Settings extends React.Component {
   render() {
     return (
       <Modal
-        trasparent
+        transparent
         animationType={"fade"}
         visible={this.props.show}
         style={SetupStyles.container}>

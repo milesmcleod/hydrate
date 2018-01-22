@@ -3,6 +3,12 @@ import { connect } from 'react-redux';
 import {
   showSettings,
   hideSettings,
+  showInterval,
+  hideInterval,
+  showStart,
+  hideStart,
+  showEnd,
+  hideEnd,
   showSetup,
   hideSetup
 } from '../../actions/ui_actions.js';
@@ -30,6 +36,12 @@ const mapDispatchToProps = (dispatch) => {
   return ({
     showSettings: () => dispatch(showSettings()),
     hideSettings: () => dispatch(hideSettings()),
+    showInterval: () => dispatch(showInterval()),
+    hideInterval: () => dispatch(hideInterval()),
+    showStart: () => dispatch(showStart()),
+    hideStart: () => dispatch(hideStart()),
+    showEnd: () => dispatch(showEnd()),
+    hideEnd: () => dispatch(hideEnd()),
     showSetup: () => dispatch(showSetup()),
     hideSetup: () => dispatch(hideSetup()),
     getNewFact: () => getNewFact(),

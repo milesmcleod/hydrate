@@ -15,7 +15,11 @@ import {
 import SetupStyles from '../../styles/setup_styles.js';
 import SetupContainer from '../setup/setup_container.js';
 import SettingsContainer from '../settings/settings_container.js';
+import IntervalContainer from '../interval_settings/interval_container.js';
+import StartContainer from '../start_settings/start_container.js';
+import EndContainer from '../end_settings/end_container.js';
 import Util from '../../util/util.js';
+import * as Options from '../../util/notification_options.js';
 
 class Home extends React.Component {
   constructor(props) {
@@ -62,34 +66,54 @@ class Home extends React.Component {
       <View style={mainStyles.container}>
         <SetupContainer />
         <SettingsContainer />
+        <IntervalContainer />
+        <StartContainer />
+        <EndContainer />
         <View style={mainStyles.container}>
           <Text
-            style={mainStyles.welcome}
-            >Current Interval:</Text>
-          <Text
-            style={mainStyles.welcome}
-            >{this.props.interval}</Text>
-          <Text
-            style={mainStyles.welcome}
-            >Current Start:</Text>
-          <Text
-            style={mainStyles.welcome}
-            >{this.props.start}</Text>
-          <Text
-            style={mainStyles.welcome}
-            >Current End:</Text>
-          <Text
-            style={mainStyles.welcome}
-            >{this.props.end}</Text>
-          <TouchableHighlight
-            onPress={() => {
-              this.props.showSettings();
-            }}
-            >
+            style={mainStyles.logo}
+            >Hydrate!</Text>
+          <View style={mainStyles.innerContainer}>
             <Text
-              style={mainStyles.welcome}
-              >Settings</Text>
-          </TouchableHighlight>
+              style={mainStyles.text}
+              >You receive reminders every</Text>
+            <TouchableHighlight
+              style={mainStyles.button}
+              onPress={() => {
+                this.props.showInterval();
+              }}
+              >
+              <Text
+                style={mainStyles.data}
+                >{Options.INTERVALS[this.props.interval]}</Text>
+            </TouchableHighlight>
+            <Text
+              style={mainStyles.text}
+              >starting at</Text>
+            <TouchableHighlight
+              style={mainStyles.button}
+              onPress={() => {
+                this.props.showStart();
+              }}
+              >
+              <Text
+                style={mainStyles.data}
+                >{Options.HOURS[this.props.start]}</Text>
+            </TouchableHighlight>
+            <Text
+              style={mainStyles.text}
+              >and ending at</Text>
+            <TouchableHighlight
+              style={mainStyles.button}
+              onPress={() => {
+                this.props.showEnd();
+              }}
+              >
+              <Text
+                style={mainStyles.data}
+                >{Options.HOURS[this.props.end]}</Text>
+            </TouchableHighlight>
+          </View>
         </View>
       </View>
     );

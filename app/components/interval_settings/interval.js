@@ -1,0 +1,82 @@
+import React from 'react';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  Picker,
+  TextInput,
+  Button,
+  AsyncStorage,
+  View,
+  Modal
+} from 'react-native';
+import { mainStyles } from '../../styles/main_styles.js';
+import SetupStyles from '../../styles/setup_styles.js';
+import Notifications from '../../util/notifications.js';
+
+class Interval extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      interval: this.props.interval,
+      start: this.props.start,
+      end: this.props.end
+    };
+  }
+
+  saveDetails() {
+    const interval = this.state.interval;
+    const start = this.state.start;
+    const end = this.state.end;
+    if (interval && start && end) {
+      AsyncStorage.setItem("interval", interval)
+      .then(() => this.props.receiveInterval(interval))
+      .then(() => this.props.hideInterval());
+    }
+    let notificationObject = new Notifications(this.props.notificationTimeoutID);
+    notificationObject.clearAllNotifications();
+    notificationObject.setDayNotifications(interval, start, end);
+    notificationObject.setFutureNotifications(interval, start, end);
+    this.props.receiveNotificationObject(notificationObject.timeoutID);
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      interval: newProps.interval,
+      start: newProps.start,
+      end: newProps.end
+    });
+  }
+
+  render() {
+    return (
+      <Modal
+        transparent
+        animationType={"fade"}
+        visible={this.props.show}
+        style={SetupStyles.container}>
+        <Text>Select an interval for notifications:</Text>
+        <Picker
+          selectedValue={`${this.state.interval}`}
+          onValueChange={(itemValue, itemIndex) => {
+            this.setState({interval: itemValue});
+          }}>
+          <Picker.Item label="1 Minute" value={`${60 * 1000}`} />
+          <Picker.Item label="15 Minutes" value={`${15 * 60 * 1000}`} />
+          <Picker.Item label="30 Minutes" value={`${30 * 60 * 1000}`} />
+          <Picker.Item label="45 Minutes" value={`${45 * 60 * 1000}`} />
+          <Picker.Item label="1 Hour" value={`${60 * 60 * 1000}`} />
+          <Picker.Item label="1.5 Hours" value={`${90 * 60 * 1000}`} />
+          <Picker.Item label="2 Hours" value={`${120 * 60 * 1000}`} />
+        </Picker>
+        <Button
+          onPress={() => this.saveDetails()}
+          title="Save"
+          style={SetupStyles.button}
+        />
+    </Modal>
+    );
+  }
+}
+
+export default Interval;

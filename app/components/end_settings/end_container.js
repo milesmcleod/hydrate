@@ -1,31 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  hideSettings
+  hideEnd
 } from '../../actions/ui_actions.js';
 import {
-  receiveInterval,
-  receiveStart,
   receiveEnd
 } from '../../actions/entities_actions.js';
 import {
   receiveNotificationObject
 } from '../../actions/notification_actions.js';
-import Settings from './settings.js';
+import End from './end.js';
 
 const mapStateToProps = (state) => {
   return ({
-    show: state.ui.showSettings,
+    show: state.ui.showEnd,
+    interval: state.entities.interval,
+    start: state.entities.start,
+    end: state.entities.end,
     notificationTimeoutID: state.notification.timeoutID
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    hideSettings: () => dispatch(hideSettings()),
-    receiveInterval: (freq) => dispatch(receiveInterval(freq)),
-    receiveStart: (freq) => dispatch(receiveStart(freq)),
-    receiveEnd: (freq) => dispatch(receiveEnd(freq)),
+    hideEnd: () => dispatch(hideEnd()),
+    receiveEnd: (value) => dispatch(receiveEnd(value)),
     receiveNotificationObject: (object) => dispatch(
       receiveNotificationObject(object)
     )
@@ -35,4 +34,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Settings);
+)(End);
