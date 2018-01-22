@@ -28,13 +28,27 @@ class Home extends React.Component {
   componentDidMount() {
     AsyncStorage.getItem("interval")
     .then((value) => {
-      this.props.receiveFrequency(value);
+      this.props.receiveInterval(value);
       this.setState({
         interval: value
       });
     })
+    .then(() => AsyncStorage.getItem("start"))
+    .then((value) => {
+      this.props.receiveStart(value);
+      this.setState({
+        start: value
+      });
+    })
+    .then(() => AsyncStorage.getItem("end"))
+    .then((value) => {
+      this.props.receiveEnd(value);
+      this.setState({
+        end: value
+      });
+    })
     .then(() => {
-      if (!this.props.interval) {
+      if (!this.state.interval) {
         this.props.showSetup();
       }
     })
@@ -42,7 +56,6 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log('cool!');
     return (
       <View style={mainStyles.container}>
         <SetupContainer />
@@ -50,10 +63,22 @@ class Home extends React.Component {
         <View style={mainStyles.container}>
           <Text
             style={mainStyles.welcome}
-            >Current Frequency:</Text>
+            >Current Interval:</Text>
           <Text
             style={mainStyles.welcome}
             >{this.props.interval}</Text>
+          <Text
+            style={mainStyles.welcome}
+            >Current Start:</Text>
+          <Text
+            style={mainStyles.welcome}
+            >{this.props.start}</Text>
+          <Text
+            style={mainStyles.welcome}
+            >Current End:</Text>
+          <Text
+            style={mainStyles.welcome}
+            >{this.props.end}</Text>
           <TouchableHighlight
             onPress={() => {
               this.props.showSettings();

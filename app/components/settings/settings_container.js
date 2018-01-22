@@ -4,7 +4,9 @@ import {
   hideSettings
 } from '../../actions/ui_actions.js';
 import {
-  receiveFrequency
+  receiveInterval,
+  receiveStart,
+  receiveEnd
 } from '../../actions/entities_actions.js';
 import Settings from './settings.js';
 
@@ -17,7 +19,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     hideSettings: () => dispatch(hideSettings()),
-    receiveFrequency: (freq) => dispatch(receiveFrequency(freq))
+    receiveInterval: (freq) => dispatch(receiveInterval(freq)),
+    receiveStart: (freq) => dispatch(receiveStart(freq)),
+    receiveEnd: (freq) => dispatch(receiveEnd(freq))
   });
 };
 

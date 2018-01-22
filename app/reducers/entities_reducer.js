@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 import {
-  RECEIVE_FREQUENCY,
-  CLEAR_FREQUENCY,
+  RECEIVE_INTERVAL,
+  RECEIVE_START,
+  RECEIVE_END,
+  CLEAR_INTERVAL,
   RECEIVE_NEW_FACT
 } from '../actions/entities_actions';
 import merge from 'lodash/merge';
@@ -13,13 +15,21 @@ const EntitiesReducer = (state = initialState, action) => {
   let newState;
 
   switch (action.type) {
-    case RECEIVE_FREQUENCY:
+    case RECEIVE_INTERVAL:
       newState = merge({}, state);
-      newState["frequency"] = action.frequency;
+      newState["interval"] = action.interval;
       return newState;
-    case CLEAR_FREQUENCY:
+    case RECEIVE_START:
       newState = merge({}, state);
-      newState["frequency"] = null;
+      newState["start"] = action.start;
+      return newState;
+    case RECEIVE_END:
+      newState = merge({}, state);
+      newState["end"] = action.end;
+      return newState;
+    case CLEAR_INTERVAL:
+      newState = merge({}, state);
+      newState["interval"] = null;
       return newState;
     case RECEIVE_NEW_FACT:
       newState = merge({}, state);

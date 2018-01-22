@@ -29,13 +29,13 @@ class Setup extends React.Component {
     const start = this.state.start;
     const end = this.state.end;
     if (interval && start && end) {
-      AsyncStorage.setItem("interval", interval);
-      AsyncStorage.setItem("startTime", start);
-      AsyncStorage.setItem("endTime", end);
-      this.props.receiveInterval(interval);
-      this.props.receiveStartTime(start);
-      this.props.receiveEndTime(end);
-      this.props.hideSetup();
+      AsyncStorage.setItem("interval", interval)
+      .then(() => AsyncStorage.setItem("start", start))
+      .then(() => AsyncStorage.setItem("end", end))
+      .then(() => this.props.receiveInterval(interval))
+      .then(() => this.props.receiveStart(start))
+      .then(() => this.props.receiveEnd(end))
+      .then(() => this.props.hideSetup());
     }
   }
 
@@ -46,13 +46,13 @@ class Setup extends React.Component {
         interval: value
       });
     })
-    .then(() => AsyncStorage.getItem("startTime"))
+    .then(() => AsyncStorage.getItem("start"))
     .then((value) => {
       this.setState({
         start: value
       });
     })
-    .then(() => AsyncStorage.getItem("emdTime"))
+    .then(() => AsyncStorage.getItem("end"))
     .then((value) => {
       this.setState({
         end: value
@@ -75,12 +75,12 @@ class Setup extends React.Component {
           onValueChange={(itemValue, itemIndex) => {
             this.setState({interval: itemValue});
           }}>
-          <Picker.Item label="15 Minutes" value={15 * 60 * 1000} />
-          <Picker.Item label="30 Minutes" value={30 * 60 * 1000} />
-          <Picker.Item label="45 Minutes" value={45 * 60 * 1000} />
-          <Picker.Item label="1 Hour" value={60 * 60 * 1000} />
-          <Picker.Item label="1.5 Hours" value={90 * 60 * 1000} />
-          <Picker.Item label="2 Hours" value={120 * 60 * 1000} />
+          <Picker.Item label="15 Minutes" value={`${15 * 60 * 1000}`} />
+          <Picker.Item label="30 Minutes" value={`${30 * 60 * 1000}`} />
+          <Picker.Item label="45 Minutes" value={`${45 * 60 * 1000}`} />
+          <Picker.Item label="1 Hour" value={`${60 * 60 * 1000}`} />
+          <Picker.Item label="1.5 Hours" value={`${90 * 60 * 1000}`} />
+          <Picker.Item label="2 Hours" value={`${120 * 60 * 1000}`} />
         </Picker>
         <Text>Select a start time for notifications:</Text>
         <Picker
@@ -88,30 +88,30 @@ class Setup extends React.Component {
           onValueChange={(itemValue, itemIndex) => {
             this.setState({start: itemValue});
           }}>
-          <Picker.Item label='12:00 AM' value={0} />
-          <Picker.Item label='1:00 AM' value={1} />
-          <Picker.Item label='2:00 AM' value={2} />
-          <Picker.Item label='3:00 AM' value={3} />
-          <Picker.Item label='4:00 AM' value={4} />
-          <Picker.Item label='5:00 AM' value={5} />
-          <Picker.Item label='6:00 AM' value={6} />
-          <Picker.Item label='7:00 AM' value={7} />
-          <Picker.Item label='8:00 AM' value={8} />
-          <Picker.Item label='9:00 AM' value={9} />
-          <Picker.Item label='10:00 AM' value={10} />
-          <Picker.Item label='11:00 AM' value={11} />
-          <Picker.Item label='12:00 PM' value={12} />
-          <Picker.Item label='1:00 PM' value={13} />
-          <Picker.Item label='2:00 PM' value={14} />
-          <Picker.Item label='3:00 PM' value={15} />
-          <Picker.Item label='4:00 PM' value={16} />
-          <Picker.Item label='5:00 PM' value={17} />
-          <Picker.Item label='6:00 PM' value={18} />
-          <Picker.Item label='7:00 PM' value={19} />
-          <Picker.Item label='8:00 PM' value={20} />
-          <Picker.Item label='9:00 PM' value={21} />
-          <Picker.Item label='10:00 PM' value={22} />
-          <Picker.Item label='11:00 PM' value={23} />
+          <Picker.Item label='12:00 AM' value={`${0}`} />
+          <Picker.Item label='1:00 AM' value={`${1}`} />
+          <Picker.Item label='2:00 AM' value={`${2}`} />
+          <Picker.Item label='3:00 AM' value={`${3}`} />
+          <Picker.Item label='4:00 AM' value={`${4}`} />
+          <Picker.Item label='5:00 AM' value={`${5}`} />
+          <Picker.Item label='6:00 AM' value={`${6}`} />
+          <Picker.Item label='7:00 AM' value={`${7}`} />
+          <Picker.Item label='8:00 AM' value={`${8}`} />
+          <Picker.Item label='9:00 AM' value={`${9}`} />
+          <Picker.Item label='10:00 AM' value={`${10}`} />
+          <Picker.Item label='11:00 AM' value={`${11}`} />
+          <Picker.Item label='12:00 PM' value={`${12}`} />
+          <Picker.Item label='1:00 PM' value={`${13}`} />
+          <Picker.Item label='2:00 PM' value={`${14}`} />
+          <Picker.Item label='3:00 PM' value={`${15}`} />
+          <Picker.Item label='4:00 PM' value={`${16}`} />
+          <Picker.Item label='5:00 PM' value={`${17}`} />
+          <Picker.Item label='6:00 PM' value={`${18}`} />
+          <Picker.Item label='7:00 PM' value={`${19}`} />
+          <Picker.Item label='8:00 PM' value={`${20}`} />
+          <Picker.Item label='9:00 PM' value={`${21}`} />
+          <Picker.Item label='10:00 PM' value={`${22}`} />
+          <Picker.Item label='11:00 PM' value={`${23}`} />
         </Picker>
         <Text>Select a start time for notifications:</Text>
         <Picker
@@ -119,30 +119,30 @@ class Setup extends React.Component {
           onValueChange={(itemValue, itemIndex) => {
             this.setState({end: itemValue});
           }}>
-          <Picker.Item label='12:00 AM' value={0} />
-          <Picker.Item label='1:00 AM' value={1} />
-          <Picker.Item label='2:00 AM' value={2} />
-          <Picker.Item label='3:00 AM' value={3} />
-          <Picker.Item label='4:00 AM' value={4} />
-          <Picker.Item label='5:00 AM' value={5} />
-          <Picker.Item label='6:00 AM' value={6} />
-          <Picker.Item label='7:00 AM' value={7} />
-          <Picker.Item label='8:00 AM' value={8} />
-          <Picker.Item label='9:00 AM' value={9} />
-          <Picker.Item label='10:00 AM' value={10} />
-          <Picker.Item label='11:00 AM' value={11} />
-          <Picker.Item label='12:00 PM' value={12} />
-          <Picker.Item label='1:00 PM' value={13} />
-          <Picker.Item label='2:00 PM' value={14} />
-          <Picker.Item label='3:00 PM' value={15} />
-          <Picker.Item label='4:00 PM' value={16} />
-          <Picker.Item label='5:00 PM' value={17} />
-          <Picker.Item label='6:00 PM' value={18} />
-          <Picker.Item label='7:00 PM' value={19} />
-          <Picker.Item label='8:00 PM' value={20} />
-          <Picker.Item label='9:00 PM' value={21} />
-          <Picker.Item label='10:00 PM' value={22} />
-          <Picker.Item label='11:00 PM' value={23} />
+          <Picker.Item label='12:00 AM' value={`${0}`} />
+          <Picker.Item label='1:00 AM' value={`${1}`} />
+          <Picker.Item label='2:00 AM' value={`${2}`} />
+          <Picker.Item label='3:00 AM' value={`${3}`} />
+          <Picker.Item label='4:00 AM' value={`${4}`} />
+          <Picker.Item label='5:00 AM' value={`${5}`} />
+          <Picker.Item label='6:00 AM' value={`${6}`} />
+          <Picker.Item label='7:00 AM' value={`${7}`} />
+          <Picker.Item label='8:00 AM' value={`${8}`} />
+          <Picker.Item label='9:00 AM' value={`${9}`} />
+          <Picker.Item label='10:00 AM' value={`${10}`} />
+          <Picker.Item label='11:00 AM' value={`${11}`} />
+          <Picker.Item label='12:00 PM' value={`${12}`} />
+          <Picker.Item label='1:00 PM' value={`${13}`} />
+          <Picker.Item label='2:00 PM' value={`${14}`} />
+          <Picker.Item label='3:00 PM' value={`${15}`} />
+          <Picker.Item label='4:00 PM' value={`${16}`} />
+          <Picker.Item label='5:00 PM' value={`${17}`} />
+          <Picker.Item label='6:00 PM' value={`${18}`} />
+          <Picker.Item label='7:00 PM' value={`${19}`} />
+          <Picker.Item label='8:00 PM' value={`${20}`} />
+          <Picker.Item label='9:00 PM' value={`${21}`} />
+          <Picker.Item label='10:00 PM' value={`${22}`} />
+          <Picker.Item label='11:00 PM' value={`${23}`} />
         </Picker>
         <Button
           onPress={() => this.saveDetails()}

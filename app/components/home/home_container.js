@@ -8,13 +8,17 @@ import {
 } from '../../actions/ui_actions.js';
 import {
   getNewFact,
-  receiveFrequency
+  receiveInterval,
+  receiveStart,
+  receiveEnd
 } from '../../actions/entities_actions.js';
 import Home from './home.js';
 
 const mapStateToProps = (state) => {
   return ({
-    frequency: state.entities.frequency,
+    interval: state.entities.interval,
+    start: state.entities.start,
+    end: state.entities.end,
     fact: state.entities.fact,
     setup: state.ui.showSetup,
     settings: state.ui.showSettings,
@@ -29,7 +33,9 @@ const mapDispatchToProps = (dispatch) => {
     showSetup: () => dispatch(showSetup()),
     hideSetup: () => dispatch(hideSetup()),
     getNewFact: () => getNewFact(),
-    receiveFrequency: (freq) => dispatch(receiveFrequency(freq))
+    receiveInterval: (freq) => dispatch(receiveInterval(freq)),
+    receiveStart: (freq) => dispatch(receiveStart(freq)),
+    receiveEnd: (freq) => dispatch(receiveEnd(freq))
   });
 };
 
