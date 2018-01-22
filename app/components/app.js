@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   AsyncStorage,
+  StatusBar,
   View
 } from 'react-native';
 import Swiper from 'react-native-swiper';
@@ -70,6 +71,7 @@ class App extends React.Component {
   render() {
     return (
       <View style={mainStyles.container}>
+        <StatusBar translucent barStyle="light-content" />
         <Scape />
         <Clouds />
         <SlidesContainer />
