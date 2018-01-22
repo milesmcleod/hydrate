@@ -25,7 +25,7 @@ class Black extends React.Component {
       this.state.fadeAnim,            // The animated value to drive
       {
         toValue: -1500,                   // Animate to opacity: 1 (opaque)
-        duration: 900000,              // Make it take a while
+        duration: 100000,              // Make it take a while
         easing: Easing.linear
       }
     ).start();                        // Starts the animation

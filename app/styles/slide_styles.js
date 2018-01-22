@@ -5,14 +5,12 @@ export const slideStyles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    backgroundColor: '#0068FF',
     padding: 30,
   },
   innerContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'stretch',
-    backgroundColor: '#0068FF',
     padding: 30
   },
   logo: {
@@ -22,10 +20,10 @@ export const slideStyles = StyleSheet.create({
     margin: 10,
   },
   text: {
-    fontSize: 20,
+    fontSize: 24,
     textAlign: 'center',
     color: '#FFFFFF',
-    margin: 10,
+    margin: 10
   },
   data: {
     fontSize: 20,
@@ -43,5 +41,15 @@ export const slideStyles = StyleSheet.create({
     bottom: 20,
     left: 75,
     right: 75
+  },
+  backgroundView: {
+    position: 'absolute',
+    left: 30,
+    right: 30,
+    top: 275,
+    bottom: 275,
+    backgroundColor: '#000000',
+    opacity: 0.7,
+    borderRadius: 5
   }
 });

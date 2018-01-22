@@ -33,8 +33,8 @@ export const backgroundStyles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     right: 0,
-    top: 0,
-    bottom: 500,
+    top: 30,
+    bottom: 470,
     justifyContent: 'flex-start',
     flexDirection: 'column',
     overflow: 'visible'

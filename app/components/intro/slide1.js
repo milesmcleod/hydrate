@@ -16,6 +16,7 @@ class Slide1 extends React.Component {
   render() {
     return (
       <View style={slideStyles.container}>
+        <View style={slideStyles.backgroundView}></View>
         <Text
           style={slideStyles.text}
           >Hi! Welcome to Hydrate.</Text>
