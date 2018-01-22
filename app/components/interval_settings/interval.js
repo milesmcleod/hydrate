@@ -5,13 +5,13 @@ import {
   Text,
   Picker,
   TextInput,
-  Button,
+  TouchableHighlight,
   AsyncStorage,
   View,
   Modal
 } from 'react-native';
 import { mainStyles } from '../../styles/main_styles.js';
-import SetupStyles from '../../styles/setup_styles.js';
+import { settingsStyles } from '../../styles/settings_styles.js';
 import Notifications from '../../util/notifications.js';
 
 class Interval extends React.Component {
@@ -52,28 +52,36 @@ class Interval extends React.Component {
     return (
       <Modal
         transparent
-        animationType={"fade"}
-        visible={this.props.show}
-        style={SetupStyles.container}>
-        <Text>Select an interval for notifications:</Text>
-        <Picker
-          selectedValue={`${this.state.interval}`}
-          onValueChange={(itemValue, itemIndex) => {
-            this.setState({interval: itemValue});
-          }}>
-          <Picker.Item label="1 Minute" value={`${60 * 1000}`} />
-          <Picker.Item label="15 Minutes" value={`${15 * 60 * 1000}`} />
-          <Picker.Item label="30 Minutes" value={`${30 * 60 * 1000}`} />
-          <Picker.Item label="45 Minutes" value={`${45 * 60 * 1000}`} />
-          <Picker.Item label="1 Hour" value={`${60 * 60 * 1000}`} />
-          <Picker.Item label="1.5 Hours" value={`${90 * 60 * 1000}`} />
-          <Picker.Item label="2 Hours" value={`${120 * 60 * 1000}`} />
-        </Picker>
-        <Button
-          onPress={() => this.saveDetails()}
-          title="Save"
-          style={SetupStyles.button}
-        />
+        animationType={"slide"}
+        visible={this.props.show}>
+        <View style={settingsStyles.container}>
+          <Text
+            style={settingsStyles.text}
+            >Select an interval for notifications:</Text>
+          <Picker
+            selectedValue={`${this.state.interval}`}
+            onValueChange={(itemValue, itemIndex) => {
+              this.setState({interval: itemValue});
+            }}>
+            <Picker.Item label="1 Minute" value={`${60 * 1000}`} />
+            <Picker.Item label="15 Minutes" value={`${15 * 60 * 1000}`} />
+            <Picker.Item label="30 Minutes" value={`${30 * 60 * 1000}`} />
+            <Picker.Item label="45 Minutes" value={`${45 * 60 * 1000}`} />
+            <Picker.Item label="1 Hour" value={`${60 * 60 * 1000}`} />
+            <Picker.Item label="1.5 Hours" value={`${90 * 60 * 1000}`} />
+            <Picker.Item label="2 Hours" value={`${120 * 60 * 1000}`} />
+          </Picker>
+          <TouchableHighlight
+            style={settingsStyles.button}
+            onPress={() => {
+              this.saveDetails();
+            }}
+            >
+            <Text
+              style={settingsStyles.buttonText}
+              >Save</Text>
+          </TouchableHighlight>
+        </View>
     </Modal>
     );
   }

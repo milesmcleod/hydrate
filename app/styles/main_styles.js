@@ -36,13 +36,7 @@ export const mainStyles = StyleSheet.create({
   button: {
     alignItems: 'center',
     backgroundColor: '#1f1f1f',
-    borderRadius: 2,
+    borderRadius: 10,
     padding: 10
-  },
-  settingsText: {
-    fontSize: 20,
-    textAlign: 'center',
-    color: '#FFFFFF',
-    margin: 10,
   }
 });

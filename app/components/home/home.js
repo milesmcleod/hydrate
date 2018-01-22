@@ -14,7 +14,6 @@ import {
 } from '../../styles/main_styles.js';
 import SetupStyles from '../../styles/setup_styles.js';
 import SetupContainer from '../setup/setup_container.js';
-import SettingsContainer from '../settings/settings_container.js';
 import IntervalContainer from '../interval_settings/interval_container.js';
 import StartContainer from '../start_settings/start_container.js';
 import EndContainer from '../end_settings/end_container.js';
@@ -65,7 +64,6 @@ class Home extends React.Component {
     return (
       <View style={mainStyles.container}>
         <SetupContainer />
-        <SettingsContainer />
         <IntervalContainer />
         <StartContainer />
         <EndContainer />
