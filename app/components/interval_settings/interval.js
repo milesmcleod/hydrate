@@ -57,7 +57,7 @@ class Interval extends React.Component {
         <View style={settingsStyles.container}>
           <Text
             style={settingsStyles.text}
-            >Select an interval for notifications:</Text>
+            >Select a new interval for notifications:</Text>
           <Picker
             selectedValue={`${this.state.interval}`}
             onValueChange={(itemValue, itemIndex) => {

@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const win = Dimensions.get('window');
+import Style from './stylesheet.js';
 
 export const backgroundStyles = StyleSheet.create({
   black: {
@@ -25,7 +25,7 @@ export const backgroundStyles = StyleSheet.create({
   scapeImage: {
     flex: 1,
     width: undefined,
-    height: win.height,
+    height: Style.DEVICE_HEIGHT,
     position: 'relative',
     overflow: 'visible'
   },
@@ -33,8 +33,8 @@ export const backgroundStyles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     right: 0,
-    top: 30,
-    bottom: 470,
+    top: Style.DEVICE_HEIGHT / 20,
+    bottom: (15 * Style.DEVICE_HEIGHT / 24),
     justifyContent: 'flex-start',
     flexDirection: 'column',
     overflow: 'visible'

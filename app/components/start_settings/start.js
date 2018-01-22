@@ -59,7 +59,7 @@ class Start extends React.Component {
           style={settingsStyles.container}>
           <Text
             style={settingsStyles.text}
-            >Select a start time for notifications:</Text>
+            >Select a new start time for notifications:</Text>
           <Picker
             selectedValue={this.state.start}
             onValueChange={(itemValue, itemIndex) => {

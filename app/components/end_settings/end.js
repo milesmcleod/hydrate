@@ -59,7 +59,7 @@ class End extends React.Component {
           style={settingsStyles.container}>
           <Text
             style={settingsStyles.text}
-            >Select an end time for notifications:</Text>
+            >Select a new end time for notifications:</Text>
           <Picker
             selectedValue={this.state.end}
             onValueChange={(itemValue, itemIndex) => {

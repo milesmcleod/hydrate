@@ -16,7 +16,7 @@ class Slide3 extends React.Component {
   render() {
     return (
       <View style={slideStyles.container}>
-        <View style={slideStyles.backgroundView}></View>
+        <View style={slideStyles.backgroundView2}></View>
         <Text
           style={slideStyles.text2}
           >On the next page, you can set up your own

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   View,
   Image,
@@ -6,9 +7,12 @@ import {
   Dimensions,
   Easing
 } from 'react-native';
+
 import {
   backgroundStyles
 } from '../../styles/background_styles.js';
+
+import Style from '../../styles/stylesheet.js';
 
 const win = Dimensions.get('window');
 
@@ -16,19 +20,21 @@ class Scape extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fadeAnim: new Animated.Value(1170),  // Initial value for opacity: 0
+      fadeAnim: new Animated.Value(
+        Style.DEVICE_WIDTH * 2.8
+      ),  // Initial value for opacity: 0
     };
   }
 
   componentDidMount() {
-    Animated.timing(                  // Animate over time
+    Animated.loop(Animated.timing(                  // Animate over time
       this.state.fadeAnim,            // The animated value to drive
       {
-        toValue: -1500,                   // Animate to opacity: 1 (opaque)
+        toValue: -1100,                   // Animate to opacity: 1 (opaque)
         duration: 300000,              // Make it take a while
         easing: Easing.linear
       }
-    ).start();                        // Starts the animation                      // Starts the animation
+    )).start();                        // Starts the animation                      // Starts the animation
   }
 
   render() {

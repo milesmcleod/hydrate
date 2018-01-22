@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import Style from './stylesheet.js';
+
 export const slideStyles = StyleSheet.create({
   container: {
     flex: 1,
@@ -14,27 +16,31 @@ export const slideStyles = StyleSheet.create({
     padding: 30
   },
   logo: {
-    fontSize: 40,
+    fontSize: Style.FONT_SIZE_TITLE,
     textAlign: 'center',
     color: '#FFFFFF',
     margin: 10,
   },
   text: {
-    fontSize: 24,
+    fontSize: Style.FONT_SIZE,
     textAlign: 'center',
     color: '#FFFFFF',
     margin: 10,
-    fontFamily: 'AvenirNext-DemiBold'
+    fontFamily: 'AvenirNext-DemiBold',
+    marginLeft: (Style.DEVICE_WIDTH / 10),
+    marginRight: (Style.DEVICE_WIDTH / 10)
   },
   text2: {
-    fontSize: 20,
+    fontSize: Style.FONT_SIZE_SMALL,
     textAlign: 'center',
     color: '#FFFFFF',
     margin: 10,
-    fontFamily: 'AvenirNext-DemiBold'
+    fontFamily: 'AvenirNext-DemiBold',
+    marginLeft: (Style.DEVICE_WIDTH / 10),
+    marginRight: (Style.DEVICE_WIDTH / 10)
   },
   data: {
-    fontSize: 20,
+    fontSize: Style.FONT_SIZE,
     textAlign: 'center',
     color: '#bdbdbd',
     margin: 10,
@@ -48,15 +54,25 @@ export const slideStyles = StyleSheet.create({
     marginBottom: 50,
     position: 'absolute',
     bottom: 20,
-    left: 75,
-    right: 75
+    left: (2 * Style.DEVICE_WIDTH / 10),
+    right: (2 * Style.DEVICE_WIDTH / 10)
   },
   backgroundView: {
     position: 'absolute',
-    left: 30,
-    right: 30,
-    top: 275,
-    bottom: 275,
+    left: (Style.DEVICE_WIDTH / 10),
+    right: (Style.DEVICE_WIDTH / 10),
+    top: (2 * Style.DEVICE_HEIGHT / 5),
+    bottom: (2 * Style.DEVICE_HEIGHT / 5),
+    backgroundColor: '#000000',
+    opacity: 0.7,
+    borderRadius: 5
+  },
+  backgroundView2: {
+    position: 'absolute',
+    left: (Style.DEVICE_WIDTH / 10),
+    right: (Style.DEVICE_WIDTH / 10),
+    top: (2 * Style.DEVICE_HEIGHT / 7),
+    bottom: (2 * Style.DEVICE_HEIGHT / 7),
     backgroundColor: '#000000',
     opacity: 0.7,
     borderRadius: 5
