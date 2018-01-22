@@ -26,29 +26,12 @@ class Home extends React.Component {
     };
   }
 
-  componentDidMount() {
-    AsyncStorage.getItem("interval")
-    .then((value) => {
-      this.props.receiveInterval(value);
-      this.setState({
-        interval: value
-      });
-    })
-    .then(() => AsyncStorage.getItem("start"))
-    .then((value) => {
-      this.props.receiveStart(value);
-      this.setState({
-        start: value
-      });
-    })
-    .then(() => AsyncStorage.getItem("end"))
-    .then((value) => {
-      this.props.receiveEnd(value);
-      this.setState({
-        end: value
-      });
-    })
-    .done();
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      interval: newProps.interval,
+      start: newProps.start,
+      end: newProps.end
+    });
   }
 
   render() {

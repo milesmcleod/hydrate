@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import App from './app.js';
+import AppContainer from './app_container.js';
 import configureStore from '../store/store';
 
 let store = configureStore();
@@ -9,7 +9,7 @@ let store = configureStore();
 
 const Root = () => (
   <Provider store={store}>
-    <App />
+    <AppContainer />
   </Provider>
 );
 

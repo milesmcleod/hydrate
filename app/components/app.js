@@ -3,6 +3,7 @@ import {
   Platform,
   StyleSheet,
   Text,
+  AsyncStorage,
   View
 } from 'react-native';
 import Swiper from 'react-native-swiper';
@@ -26,10 +27,43 @@ const instructions = Platform.select({
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      interval: undefined,
+      start: undefined,
+      end: undefined
+    };
   }
 
-  componentDidMount() {
-
+  componentWillMount() {
+    AsyncStorage.getItem("interval")
+    .then((value) => {
+      this.props.receiveInterval(value);
+      this.setState({
+        interval: value
+      });
+    })
+    .then(() => AsyncStorage.getItem("start"))
+    .then((value) => {
+      this.props.receiveStart(value);
+      this.setState({
+        start: value
+      });
+    })
+    .then(() => AsyncStorage.getItem("end"))
+    .then((value) => {
+      this.props.receiveEnd(value);
+      this.setState({
+        end: value
+      });
+    })
+    .then(() => {
+      if (this.state.interval) {
+        this.props.showHome();
+      } else {
+        this.props.showSlides();
+      }
+    })
+    .done();
   }
 
   render() {

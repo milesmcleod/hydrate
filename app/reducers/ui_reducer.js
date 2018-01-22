@@ -23,7 +23,7 @@ const initialState = {
   showInterval: false,
   showStart: false,
   showEnd: false,
-  showSlides: true,
+  showSlides: false,
   time: Date.now()
 };
 
