@@ -42,14 +42,25 @@ class Notifications {
       }
     }
     while (windowStart <= windowEnd) {
+      let text = new Date(windowStart).toISOString().slice(11, 16);
+      if (Number(text.slice(0, 2)) > 12) {
+        let hour = (Number(text.slice(0, 2)) % 12);
+        text = String(hour) + text.slice(2) + ' PM';
+      } else if (text.slice(0, 2) === '00') {
+        let hour = 12;
+        text = String(hour) + text.slice(2) + ' AM';
+      } else {
+        text = text + ' PM';
+      }
       const offset = new Date().getTimezoneOffset();
       let date = windowStart + (offset * 60 * 1000);
       date = new Date(date).toISOString();
       console.log(date);
       PushNotificationIOS.scheduleLocalNotification({
-        alertTitle: "Water",
+        alertTitle: text,
         alertBody: "Time to drink water!", // (required)
-        fireDate: date
+        fireDate: date,
+        isSilent: true
       });
       console.log(`timer set for ${date}`);
       windowStart += interval;
