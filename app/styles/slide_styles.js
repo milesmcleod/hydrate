@@ -23,7 +23,15 @@ export const slideStyles = StyleSheet.create({
     fontSize: 24,
     textAlign: 'center',
     color: '#FFFFFF',
-    margin: 10
+    margin: 10,
+    fontFamily: 'AvenirNext-DemiBold'
+  },
+  text2: {
+    fontSize: 20,
+    textAlign: 'center',
+    color: '#FFFFFF',
+    margin: 10,
+    fontFamily: 'AvenirNext-DemiBold'
   },
   data: {
     fontSize: 20,
@@ -33,7 +41,8 @@ export const slideStyles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#1f1f1f',
+    backgroundColor: '#000000',
+    opacity: 0.9,
     borderRadius: 1,
     padding: 10,
     marginBottom: 50,

@@ -8,17 +8,19 @@ export const setupStyles = StyleSheet.create({
   scrollContainer: {
     padding: 30,
     margin: 30,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
     borderRadius: 10,
   },
   text: {
     fontSize: 20,
     textAlign: 'center',
     color: '#FFFFFF',
-    margin: 10,
+    margin: 5,
+    fontFamily: 'AvenirNext-DemiBold',
   },
   picker: {
-    color: '#FFFFFF'
+    color: '#FFFFFF',
+    marginBottom: 20
   },
   formInput: {
     height: 26,
@@ -29,8 +31,10 @@ export const setupStyles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#1f1f1f',
-    borderRadius: 10,
+    backgroundColor: '#000000',
+    borderRadius: 2,
+    borderWidth: 2,
+    borderColor: '#ffffff',
     padding: 10,
     marginBottom: 50
   }

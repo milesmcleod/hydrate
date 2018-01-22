@@ -18,9 +18,10 @@ class Slide3 extends React.Component {
       <View style={slideStyles.container}>
         <View style={slideStyles.backgroundView}></View>
         <Text
-          style={slideStyles.text}
+          style={slideStyles.text2}
           >On the next page, you can set up your own
-          system of reminders that will help keep you hydrated!</Text>
+          system of reminders that will help keep you hydrated.
+          {'\n'}{'\n'}&#8595;</Text>
           <TouchableHighlight
             style={slideStyles.button}
             onPress={() => {

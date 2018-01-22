@@ -59,7 +59,7 @@ class Setup extends React.Component {
         <ScrollView style={setupStyles.scrollContainer}>
           <Text
             style={setupStyles.text}
-            >Select an interval for notifications:</Text>
+            >Select an interval for reminders:{'\n'}{'\n'}&#8595;</Text>
           <Picker
             itemStyle={setupStyles.picker}
             selectedValue={this.state.interval}
@@ -76,7 +76,7 @@ class Setup extends React.Component {
           </Picker>
           <Text
             style={setupStyles.text}
-            >Select a start time for notifications:</Text>
+            >Select a start time for reminders:{'\n'}{'\n'}&#8595;</Text>
           <Picker
             itemStyle={setupStyles.picker}
             selectedValue={this.state.start}
@@ -110,7 +110,7 @@ class Setup extends React.Component {
           </Picker>
           <Text
             style={setupStyles.text}
-            >Select a start time for notifications:</Text>
+            >Select an end time for reminders:{'\n'}{'\n'}&#8595;</Text>
           <Picker
             itemStyle={setupStyles.picker}
             selectedValue={this.state.end}

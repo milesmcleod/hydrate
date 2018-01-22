@@ -28,23 +28,27 @@ export const mainStyles = StyleSheet.create({
     textAlign: 'center',
     color: '#FFFFFF',
     margin: 10,
+    marginTop: 60,
+    fontFamily: 'AvenirNext-Heavy'
   },
   text: {
     fontSize: 20,
     textAlign: 'center',
     color: '#FFFFFF',
     margin: 10,
+    fontFamily: 'AvenirNext-DemiBold',
   },
   data: {
     fontSize: 20,
     textAlign: 'center',
-    color: '#bdbdbd',
+    color: '#FFFFFF',
     margin: 10,
+    fontFamily: 'AvenirNext-DemiBold',
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#1f1f1f',
-    borderRadius: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    borderRadius: 4,
     padding: 10
   }
 });
