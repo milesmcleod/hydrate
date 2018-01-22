@@ -21,30 +21,22 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      frequency: undefined
+      interval: undefined
     };
   }
 
   componentDidMount() {
-    AsyncStorage.getItem("frequency")
+    AsyncStorage.getItem("interval")
     .then((value) => {
       this.props.receiveFrequency(value);
       this.setState({
-        frequency: value
+        interval: value
       });
     })
     .then(() => {
-      if (!this.props.frequency) {
+      if (!this.props.interval) {
         this.props.showSetup();
       }
-    })
-    .then(() => {
-      const x = new Util();
-      x.notify(
-        1,
-        'drink water dangus',
-        'silence'
-      );
     })
     .done();
   }
@@ -61,7 +53,7 @@ class Home extends React.Component {
             >Current Frequency:</Text>
           <Text
             style={mainStyles.welcome}
-            >{this.props.frequency}</Text>
+            >{this.props.interval}</Text>
           <TouchableHighlight
             onPress={() => {
               this.props.showSettings();
