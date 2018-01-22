@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import SetupStyles from '../../styles/setup_styles.js';
 import * as Options from '../../util/notification_options.js';
+import Notifications from '../../util/notifications.js';
 
 class Setup extends React.Component {
   constructor(props) {

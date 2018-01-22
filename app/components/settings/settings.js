@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { mainStyles } from '../../styles/main_styles.js';
 import SetupStyles from '../../styles/setup_styles.js';
+import Notifications from '../../util/notifications.js';
 
 class Settings extends React.Component {
   constructor(props) {
@@ -36,6 +37,12 @@ class Settings extends React.Component {
       .then(() => this.props.receiveEnd(end))
       .then(() => this.props.hideSettings());
     }
+    let xNotifications = new Notifications();
+    console.log('beans start ' + start);
+    console.log('beans end ' + end);
+    xNotifications.clearAllNotifications();
+    xNotifications.setDayNotifications(interval, start, end);
+    xNotifications.setFutureNotifications(interval, start, end);
   }
 
   componentDidMount() {
@@ -61,7 +68,6 @@ class Settings extends React.Component {
   }
 
   render() {
-    console.log(this.state.interval);
     return (
       <Modal
         trasparent
@@ -74,6 +80,7 @@ class Settings extends React.Component {
           onValueChange={(itemValue, itemIndex) => {
             this.setState({interval: itemValue});
           }}>
+          <Picker.Item label="1 Minute" value={`${60 * 1000}`} />
           <Picker.Item label="15 Minutes" value={`${15 * 60 * 1000}`} />
           <Picker.Item label="30 Minutes" value={`${30 * 60 * 1000}`} />
           <Picker.Item label="45 Minutes" value={`${45 * 60 * 1000}`} />

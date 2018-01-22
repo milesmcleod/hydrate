@@ -21,7 +21,9 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      interval: undefined
+      interval: undefined,
+      start: undefined,
+      end: undefined
     };
   }
 
