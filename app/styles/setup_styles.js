@@ -31,6 +31,7 @@ export const setupStyles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#1f1f1f',
     borderRadius: 10,
-    padding: 10
+    padding: 10,
+    marginBottom: 50
   }
 });

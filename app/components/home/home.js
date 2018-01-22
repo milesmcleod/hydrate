@@ -45,7 +45,7 @@ class Home extends React.Component {
         <View style={mainStyles.innerContainer}>
           <Text
             style={mainStyles.text}
-            >You receive reminders every</Text>
+            >You will receive reminders every</Text>
           <TouchableHighlight
             style={mainStyles.button}
             onPress={() => {

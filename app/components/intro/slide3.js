@@ -16,7 +16,10 @@ class Slide3 extends React.Component {
   render() {
     return (
       <View style={slideStyles.container}>
-        <Text>Slide 3</Text>
+        <Text
+          style={slideStyles.text}
+          >On the next page, you can set up your own
+          system of reminders that will help keep you hydrated!</Text>
           <TouchableHighlight
             style={slideStyles.button}
             onPress={() => {
@@ -26,7 +29,7 @@ class Slide3 extends React.Component {
             >
             <Text
               style={slideStyles.text}
-              >Done!</Text>
+              >Get Started</Text>
           </TouchableHighlight>
       </View>
     );

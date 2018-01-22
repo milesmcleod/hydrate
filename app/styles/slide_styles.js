@@ -4,7 +4,7 @@ export const slideStyles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     backgroundColor: '#0068FF',
     padding: 30,
   },
@@ -36,7 +36,12 @@ export const slideStyles = StyleSheet.create({
   button: {
     alignItems: 'center',
     backgroundColor: '#1f1f1f',
-    borderRadius: 10,
-    padding: 10
+    borderRadius: 1,
+    padding: 10,
+    marginBottom: 50,
+    position: 'absolute',
+    bottom: 20,
+    left: 75,
+    right: 75
   }
 });
