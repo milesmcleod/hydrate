@@ -24,23 +24,24 @@ class About extends React.Component {
         >
         <Text
           style={aboutStyles.text}
-          ></Text>
+          >A little bit about water A little bit about water A little bit
+          about water</Text>
         <Text
           style={aboutStyles.text}
-          ></Text>
+          >A little bit of thank yous</Text>
         <Text
           style={aboutStyles.text}
-          ></Text>
+          >A little bit of copyright</Text>
         <TouchableHighlight
           onPress={() => {
             this.props.hideAbout();
-            this.props.showHome();
+            setTimeout(this.props.showHome, 300);
           }}
           style={aboutStyles.button}
           >
           <Text
             style={aboutStyles.buttonText}
-            ></Text>
+            >Back</Text>
         </TouchableHighlight>
       </Modal>
     );

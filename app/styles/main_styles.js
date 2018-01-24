@@ -55,5 +55,16 @@ export const mainStyles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     borderRadius: 4,
     padding: (Styles.DEVICE_WIDTH / 40)
+  },
+  aboutButton: {
+    position: 'absolute',
+    top: (Styles.DEVICE_WIDTH / 20),
+    right: 0,
+    width: (Styles.DEVICE_WIDTH / 15),
+    height: (Styles.DEVICE_WIDTH / 15),
+  },
+  aboutIcon: {
+    height: (Styles.DEVICE_WIDTH / 15),
+    width: (Styles.DEVICE_WIDTH / 15)
   }
 });

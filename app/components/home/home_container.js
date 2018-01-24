@@ -10,7 +10,9 @@ import {
   showEnd,
   hideEnd,
   showSetup,
-  hideSetup
+  hideSetup,
+  showAbout,
+  hideHome
 } from '../../actions/ui_actions.js';
 import {
   getNewFact,
@@ -35,6 +37,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
+    showAbout: () => dispatch(showAbout()),
+    hideHome: () => dispatch(hideHome()),
     showSettings: () => dispatch(showSettings()),
     hideSettings: () => dispatch(hideSettings()),
     showInterval: () => dispatch(showInterval()),

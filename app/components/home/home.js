@@ -3,6 +3,7 @@ import {
   Platform,
   StyleSheet,
   Text,
+  Image,
   TextInput,
   View,
   TouchableHighlight,
@@ -39,6 +40,18 @@ class Home extends React.Component {
     return (
       <View
         style={style}>
+        <TouchableHighlight
+          style={mainStyles.aboutButton}
+          onPress={() => {
+            this.props.hideHome();
+            setTimeout(this.props.showAbout, 50);
+          }}
+          >
+          <Image
+            source={require('../../../assets/links/info.png')}
+            style={mainStyles.aboutIcon}
+            ></Image>
+        </TouchableHighlight>
         <Text
           style={mainStyles.logo}
           >Hydrate!</Text>
