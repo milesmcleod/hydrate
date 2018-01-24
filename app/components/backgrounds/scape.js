@@ -27,14 +27,14 @@ class Scape extends React.Component {
   }
 
   componentDidMount() {
-    Animated.loop(Animated.timing(                  // Animate over time
-      this.state.fadeAnim,            // The animated value to drive
+    Animated.loop(Animated.timing(
+      this.state.fadeAnim,
       {
-        toValue: -1100,                   // Animate to opacity: 1 (opaque)
-        duration: 300000,              // Make it take a while
+        toValue: Style.DEVICE_WIDTH * -2.8,
+        duration: 300000,
         easing: Easing.linear
       }
-    )).start();                        // Starts the animation                      // Starts the animation
+    )).start();
   }
 
   render() {

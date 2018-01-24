@@ -49,7 +49,6 @@ class Start extends React.Component {
   }
 
   render() {
-    console.log(`beans ${this.props.show}`);
     return (
       <Modal
         transparent

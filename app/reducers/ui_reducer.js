@@ -3,6 +3,8 @@ import {
   HIDE_SETUP,
   SHOW_HOME,
   HIDE_HOME,
+  SHOW_ABOUT,
+  HIDE_ABOUT,
   SHOW_SLIDES,
   HIDE_SLIDES,
   SHOW_INTERVAL,
@@ -24,6 +26,7 @@ const initialState = {
   showStart: false,
   showEnd: false,
   showSlides: false,
+  showAbout: false,
   time: Date.now()
 };
 
@@ -37,6 +40,12 @@ const UiReducer = (state = initialState, action) => {
       return newState;
     case HIDE_HOME:
       newState["showHome"] = false;
+      return newState;
+    case SHOW_ABOUT:
+      newState["showAbout"] = true;
+      return newState;
+    case HIDE_ABOUT:
+      newState["showAbout"] = false;
       return newState;
     case SHOW_SETUP:
       newState["showSetup"] = true;

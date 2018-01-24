@@ -19,12 +19,23 @@ export const HIDE_SLIDES = "HIDE_SLIDES";
 export const SHOW_HOME = "SHOW_HOME";
 export const HIDE_HOME = "HIDE_HOME";
 
+export const SHOW_ABOUT = "SHOW_ABOUT";
+export const HIDE_ABOUT = "HIDE_ABOUT";
+
 export const showHome = () => ({
   type: SHOW_HOME
 });
 
 export const hideHome = () => ({
   type: HIDE_HOME
+});
+
+export const showAbout = () => ({
+  type: SHOW_ABOUT
+});
+
+export const hideAbout = () => ({
+  type: HIDE_ABOUT
 });
 
 export const showSettings = () => ({

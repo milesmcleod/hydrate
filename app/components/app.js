@@ -17,6 +17,7 @@ import EndContainer from './end_settings/end_container.js';
 import Scape from './backgrounds/scape.js';
 import Clouds from './backgrounds/clouds.js';
 import SlidesContainer from './intro/slides_container.js';
+import About from './about/about_container.js';
 
 
 const instructions = Platform.select({
@@ -80,6 +81,7 @@ class App extends React.Component {
         <IntervalContainer />
         <StartContainer />
         <EndContainer />
+        <About />
       </View>
     );
   }

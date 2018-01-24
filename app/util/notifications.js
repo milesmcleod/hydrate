@@ -28,7 +28,6 @@ class Notifications {
   clearAllNotifications() {
     PushNotificationIOS.cancelLocalNotifications();
     clearTimeout(this.timeoutID);
-    console.log('notifications cleared');
   }
 
   setDayNotifications(interval, startHour, endHour) {
@@ -59,14 +58,12 @@ class Notifications {
       const offset = new Date().getTimezoneOffset();
       let date = windowStart + (offset * 60 * 1000);
       date = new Date(date).toISOString();
-      console.log(date);
       PushNotificationIOS.scheduleLocalNotification({
         alertTitle: text,
         alertBody: "Time to drink water!", // (required)
         fireDate: date,
         isSilent: true
       });
-      console.log(`timer set for ${date}`);
       windowStart += interval;
     }
   }
@@ -76,7 +73,6 @@ class Notifications {
       this.setDayNotifications(interval, startHour, endHour);
       this.setFutureNotifications(interval, startHour, endHour);
     });
-    console.log(`future set, timeout id: ${this.timeoutID}`);
   }
 
   setMidnightInterval(callback) {
