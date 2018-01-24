@@ -42,7 +42,7 @@ class Scape extends React.Component {
     return (
       <View style={backgroundStyles.scape}>
         <Image
-          style={{position: 'absolute', left: 0, top: 0, right: 0, bottom: 0}}
+          style={{position: 'absolute', left: -50, top: -50, right: 0, bottom: 0}}
           source={require('../../../assets/background_images/blue.png')}
         />
         <Animated.Image

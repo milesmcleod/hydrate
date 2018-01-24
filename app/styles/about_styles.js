@@ -2,40 +2,54 @@ import {
   Stylesheet
 } from 'react-native';
 
-import Style from './stylesheet.js';
+import Styles from './stylesheet.js';
 
 export const aboutStyles = {
   container: {
     position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
+    width: Styles.DEVICE_WIDTH,
+    height: Styles.DEVICE_HEIGHT,
     flex: 1,
     flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: 'center'
+  },
+  textTop: {
+    fontFamily: 'AvenirNext-DemiBold',
+    color: '#FFFFFF',
+    fontSize: Styles.FONT_SIZE_SMALLER * 1.1,
+    marginLeft: (2 * Styles.DEVICE_WIDTH / 10),
+    marginRight: (2 * Styles.DEVICE_WIDTH / 10),
+    marginTop: (2 * Styles.DEVICE_HEIGHT / 15),
   },
   text: {
     fontFamily: 'AvenirNext-DemiBold',
     color: '#FFFFFF',
-    fontSize: Style.FONT_SIZE_SMALL,
-    margin: (2 * Style.DEVICE_WIDTH / 12)
+    fontSize: Styles.FONT_SIZE_SMALLER * 1.1,
+    marginLeft: (2 * Styles.DEVICE_WIDTH / 10),
+    marginRight: (2 * Styles.DEVICE_WIDTH / 10),
+    marginTop: (Styles.DEVICE_HEIGHT / 14),
   },
   button: {
     alignItems: 'center',
     backgroundColor: '#000000',
     borderRadius: 1,
     padding: 10,
-    marginBottom: 50,
     position: 'absolute',
-    bottom: 20,
-    left: (2 * Style.DEVICE_WIDTH / 10),
-    right: (2 * Style.DEVICE_WIDTH / 10)
+    bottom: (Styles.DEVICE_WIDTH / 10),
+    left: (2 * Styles.DEVICE_WIDTH / 10),
+    right: (2 * Styles.DEVICE_WIDTH / 10)
   },
   buttonText: {
     fontFamily: 'AvenirNext-DemiBold',
     color: '#FFFFFF',
-    fontSize: Style.FONT_SIZE_SMALL,
+    fontSize: Styles.FONT_SIZE_SMALLER,
+  },
+  background: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)'
   }
 };

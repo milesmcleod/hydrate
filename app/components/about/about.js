@@ -1,12 +1,13 @@
 import React from 'react';
 import {
   Modal,
+  View,
   TouchableHighlight,
   Text,
   Image
 } from 'react-native';
 
-import Stylesheet from '../../styles/stylesheet.js';
+import Style from '../../styles/stylesheet.js';
 import { aboutStyles } from '../../styles/about_styles.js';
 
 class About extends React.Component {
@@ -19,19 +20,24 @@ class About extends React.Component {
       <Modal
         transparent
         visible={this.props.show}
-        animationType={"fade"}
         style={aboutStyles.container}
+        animationType={"fade"}
         >
+        <View style={aboutStyles.background}></View>
+        <Text
+          style={aboutStyles.textTop}
+          >Once, I stood on a table and shouted at everyone to drink
+          more water. Now, there's an app for that.</Text>
         <Text
           style={aboutStyles.text}
-          >A little bit about water A little bit about water A little bit
-          about water</Text>
+          >Designed and built by Miles McLeod.</Text>
         <Text
           style={aboutStyles.text}
-          >A little bit of thank yous</Text>
+          >Dedicated to Dan Muro, who has more than once reminded me to stay
+          hydrated during stressful situations.</Text>
         <Text
           style={aboutStyles.text}
-          >A little bit of copyright</Text>
+          >&copy; 2017 Miles McLeod</Text>
         <TouchableHighlight
           onPress={() => {
             this.props.hideAbout();
