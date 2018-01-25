@@ -18,12 +18,14 @@ import {
   getNewFact,
   receiveInterval,
   receiveStart,
-  receiveEnd
+  receiveEnd,
+  toggle
 } from '../../actions/entities_actions.js';
 import Home from './home.js';
 
 const mapStateToProps = (state) => {
   return ({
+    on: state.entities.on,
     show: state.ui.showHome,
     interval: state.entities.interval,
     start: state.entities.start,
@@ -37,6 +39,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
+    toggle: (on) => dispatch(toggle(on)),
     showAbout: () => dispatch(showAbout()),
     hideHome: () => dispatch(hideHome()),
     showSettings: () => dispatch(showSettings()),

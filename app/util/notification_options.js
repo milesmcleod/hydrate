@@ -1,4 +1,5 @@
 export const INTERVALS = {
+  60000: '1 Minute',
   900000: '15 Minutes',
   1800000: '30 Minutes',
   2700000: '45 Minutes',

@@ -4,11 +4,14 @@ import {
   RECEIVE_START,
   RECEIVE_END,
   CLEAR_INTERVAL,
-  RECEIVE_NEW_FACT
+  RECEIVE_NEW_FACT,
+  TOGGLE
 } from '../actions/entities_actions';
 import merge from 'lodash/merge';
 
-const initialState = {};
+const initialState = {
+  on: true
+};
 
 const EntitiesReducer = (state = initialState, action) => {
   Object.freeze(state);
@@ -34,6 +37,10 @@ const EntitiesReducer = (state = initialState, action) => {
     case RECEIVE_NEW_FACT:
       newState = merge({}, state);
       newState["fact"] = action.payload.fact;
+      return newState;
+    case TOGGLE:
+      newState = merge({}, state);
+      newState["on"] = action.onBoolean;
       return newState;
     default:
       return state;

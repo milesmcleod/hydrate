@@ -37,7 +37,7 @@ class Notifications {
     let windowStart = lastMidnight + (startHour * 60 * 60 * 1000);
     const windowEnd = lastMidnight + (endHour * 60 * 60 * 1000);
     const fireDates = [];
-    if (now > windowEnd) return;
+    if (now > windowEnd || interval === 0 ) return;
     if (now > windowStart && now < windowEnd) {
       windowStart = lastMidnight;
       while (!(windowStart > now)) {

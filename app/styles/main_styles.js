@@ -66,5 +66,11 @@ export const mainStyles = StyleSheet.create({
   aboutIcon: {
     height: (Styles.DEVICE_WIDTH / 15),
     width: (Styles.DEVICE_WIDTH / 15)
+  },
+  switch: {
+    position: 'absolute',
+    top: (Styles.DEVICE_WIDTH / 30),
+    left: 0,
+    transform: [{ scaleX: .7 }, { scaleY: .7 }]
   }
 });

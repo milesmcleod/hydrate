@@ -3,6 +3,7 @@ import {
   Platform,
   StyleSheet,
   Text,
+  Switch,
   Image,
   TextInput,
   View,
@@ -21,6 +22,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      on: this.props.on,
       interval: undefined,
       start: undefined,
       end: undefined
@@ -31,73 +33,119 @@ class Home extends React.Component {
     this.setState({
       interval: newProps.interval,
       start: newProps.start,
-      end: newProps.end
+      end: newProps.end,
+      on: newProps.on
     });
   }
 
   render() {
     const style = this.props.show ? mainStyles.container : mainStyles.invisible;
-    return (
-      <View
-        style={style}>
-        <TouchableHighlight
-          style={mainStyles.aboutButton}
-          onPress={() => {
-            this.props.hideHome();
-            setTimeout(this.props.showAbout, 50);
-          }}
-          >
-          <Image
-            source={require('../../../assets/links/info.png')}
-            style={mainStyles.aboutIcon}
-            ></Image>
-        </TouchableHighlight>
-        <Text
-          style={mainStyles.logo}
-          >Hydrate!</Text>
-        <View style={mainStyles.innerContainer}>
-          <Text
-            style={mainStyles.text}
-            >You will receive reminders every</Text>
+    if (this.state.on) {
+      return (
+        <View
+          style={style}>
           <TouchableHighlight
-            style={mainStyles.button}
+            style={mainStyles.aboutButton}
             onPress={() => {
-              this.props.showInterval();
+              this.props.hideHome();
+              setTimeout(this.props.showAbout, 50);
             }}
             >
-            <Text
-              style={mainStyles.data}
-              >{Options.INTERVALS[this.props.interval]}</Text>
+            <Image
+              source={require('../../../assets/links/info.png')}
+              style={mainStyles.aboutIcon}
+              ></Image>
           </TouchableHighlight>
+          <Switch
+            style={mainStyles.switch}
+            onTintColor={'#00997a'}
+            tintColor={'#FFFFFF'}
+            thumbTintColor={'#FFFFFF'}
+            value={this.state.on}
+            onValueChange={(value) => this.props.toggle(value)}
+            ></Switch>
           <Text
-            style={mainStyles.text}
-            >starting at</Text>
-          <TouchableHighlight
-            style={mainStyles.button}
-            onPress={() => {
-              this.props.showStart();
-            }}
-            >
+            style={mainStyles.logo}
+            >Hydrate!</Text>
+          <View style={mainStyles.innerContainer}>
             <Text
-              style={mainStyles.data}
-              >{Options.HOURS[this.props.start]}</Text>
-          </TouchableHighlight>
-          <Text
-            style={mainStyles.text}
-            >and ending at</Text>
-          <TouchableHighlight
-            style={mainStyles.button}
-            onPress={() => {
-              this.props.showEnd();
-            }}
-            >
+              style={mainStyles.text}
+              >You will receive reminders every</Text>
+            <TouchableHighlight
+              style={mainStyles.button}
+              onPress={() => {
+                this.props.showInterval();
+              }}
+              >
+              <Text
+                style={mainStyles.data}
+                >{Options.INTERVALS[this.props.interval]}</Text>
+            </TouchableHighlight>
             <Text
-              style={mainStyles.data}
-              >{Options.HOURS[this.props.end]}</Text>
-          </TouchableHighlight>
+              style={mainStyles.text}
+              >starting at</Text>
+            <TouchableHighlight
+              style={mainStyles.button}
+              onPress={() => {
+                this.props.showStart();
+              }}
+              >
+              <Text
+                style={mainStyles.data}
+                >{Options.HOURS[this.props.start]}</Text>
+            </TouchableHighlight>
+            <Text
+              style={mainStyles.text}
+              >and ending at</Text>
+            <TouchableHighlight
+              style={mainStyles.button}
+              onPress={() => {
+                this.props.showEnd();
+              }}
+              >
+              <Text
+                style={mainStyles.data}
+                >{Options.HOURS[this.props.end]}</Text>
+            </TouchableHighlight>
+          </View>
         </View>
-      </View>
-    );
+      );
+    } else {
+      return (
+        <View
+          style={style}>
+          <TouchableHighlight
+            style={mainStyles.aboutButton}
+            onPress={() => {
+              this.props.hideHome();
+              setTimeout(this.props.showAbout, 50);
+            }}
+            >
+            <Image
+              source={require('../../../assets/links/info.png')}
+              style={mainStyles.aboutIcon}
+              ></Image>
+          </TouchableHighlight>
+          <Switch
+            style={mainStyles.switch}
+            onTintColor={'#00997a'}
+            tintColor={'#FFFFFF'}
+            thumbTintColor={'#FFFFFF'}
+            value={this.state.on}
+            onValueChange={(value) => this.props.toggle(value)}
+            ></Switch>
+          <Text
+            style={mainStyles.logo}
+            >Hydrate!</Text>
+          <View style={mainStyles.innerContainer}>
+            <Text
+              style={mainStyles.text}
+              >You will not receive reminders.</Text>
+          </View>
+        </View>
+      );
+    }
+
   }
 }
 
