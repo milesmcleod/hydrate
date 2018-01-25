@@ -17,7 +17,7 @@ import {
 import SetupStyles from '../../styles/setup_styles.js';
 import Util from '../../util/util.js';
 import * as Options from '../../util/notification_options.js';
-import Notifications from '../../util/notifications.js';
+import Toggle from '../toggle/toggle_container.js';
 
 class Home extends React.Component {
   constructor(props) {
@@ -43,160 +43,78 @@ class Home extends React.Component {
 
   render() {
     const style = this.props.show ? mainStyles.container : mainStyles.invisible;
+    let midSection;
     if (this.state.on) {
-      return (
-        <View
-          style={style}>
+      midSection = (
+        <View style={mainStyles.innerContainer}>
+          <Text style={mainStyles.text}>
+            You will receive reminders every
+          </Text>
           <TouchableHighlight
-            style={mainStyles.aboutButton}
+            style={mainStyles.button}
             onPress={() => {
-              this.props.hideHome();
-              setTimeout(this.props.showAbout, 50);
+              this.props.showInterval();
             }}
             >
-            <Image
-              source={require('../../../assets/links/info.png')}
-              style={mainStyles.aboutIcon}
-              ></Image>
+            <Text style={mainStyles.data}>
+              {Options.INTERVALS[this.props.interval]}
+            </Text>
           </TouchableHighlight>
-          <Switch
-            style={mainStyles.switch}
-            onTintColor={'#00997a'}
-            tintColor={'#FFFFFF'}
-            thumbTintColor={'#FFFFFF'}
-            value={this.state.on}
-            onValueChange={(value) => {
-              console.log(value);
-              if (value) {
-                let notificationObject = new Notifications(
-                  this.state.notificationTimeoutID
-                );
-                notificationObject.setDayNotifications(
-                  this.state.interval,
-                  this.state.start,
-                  this.state.end);
-                notificationObject.setFutureNotifications(
-                  this.state.interval,
-                  this.state.start,
-                  this.state.end);
-                this.props.receiveNotificationObject(
-                  notificationObject.timeoutID
-                );
-              } else {
-                let notificationObject = new Notifications(
-                  this.state.notificationTimeoutID
-                );
-                notificationObject.clearAllNotifications();
-              }
-              setTimeout(() => this.props.toggle(value), 200);
+          <Text style={mainStyles.text}>starting at</Text>
+          <TouchableHighlight
+            style={mainStyles.button}
+            onPress={() => {
+              this.props.showStart();
             }}
-            ></Switch>
-          <Text
-            style={mainStyles.logo}
-            >Hydrate!</Text>
-          <View style={mainStyles.innerContainer}>
+            >
             <Text
-              style={mainStyles.text}
-              >You will receive reminders every</Text>
-            <TouchableHighlight
-              style={mainStyles.button}
-              onPress={() => {
-                this.props.showInterval();
-              }}
-              >
-              <Text
-                style={mainStyles.data}
-                >{Options.INTERVALS[this.props.interval]}</Text>
-            </TouchableHighlight>
+              style={mainStyles.data}
+              >{Options.HOURS[this.props.start]}</Text>
+          </TouchableHighlight>
+          <Text style={mainStyles.text}>and ending at</Text>
+          <TouchableHighlight
+            style={mainStyles.button}
+            onPress={() => {
+              this.props.showEnd();
+            }}
+            >
             <Text
-              style={mainStyles.text}
-              >starting at</Text>
-            <TouchableHighlight
-              style={mainStyles.button}
-              onPress={() => {
-                this.props.showStart();
-              }}
-              >
-              <Text
-                style={mainStyles.data}
-                >{Options.HOURS[this.props.start]}</Text>
-            </TouchableHighlight>
-            <Text
-              style={mainStyles.text}
-              >and ending at</Text>
-            <TouchableHighlight
-              style={mainStyles.button}
-              onPress={() => {
-                this.props.showEnd();
-              }}
-              >
-              <Text
-                style={mainStyles.data}
-                >{Options.HOURS[this.props.end]}</Text>
-            </TouchableHighlight>
-          </View>
+              style={mainStyles.data}
+              >{Options.HOURS[this.props.end]}</Text>
+          </TouchableHighlight>
         </View>
       );
     } else {
-      return (
-        <View
-          style={style}>
-          <TouchableHighlight
-            style={mainStyles.aboutButton}
-            onPress={() => {
-              this.props.hideHome();
-              setTimeout(this.props.showAbout, 50);
-            }}
-            >
-            <Image
-              source={require('../../../assets/links/info.png')}
-              style={mainStyles.aboutIcon}
-              ></Image>
-          </TouchableHighlight>
-          <Switch
-            style={mainStyles.switch}
-            onTintColor={'#00997a'}
-            tintColor={'#FFFFFF'}
-            thumbTintColor={'#FFFFFF'}
-            value={this.state.on}
-            onValueChange={(value) => {
-              console.log(value);
-              if (value) {
-                let notificationObject = new Notifications(
-                  this.state.notificationTimeoutID
-                );
-                notificationObject.setDayNotifications(
-                  this.state.interval,
-                  this.state.start,
-                  this.state.end);
-                notificationObject.setFutureNotifications(
-                  this.state.interval,
-                  this.state.start,
-                  this.state.end);
-                this.props.receiveNotificationObject(
-                  notificationObject.timeoutID
-                );
-              } else {
-                let notificationObject = new Notifications(
-                  this.state.notificationTimeoutID
-                );
-                notificationObject.clearAllNotifications();
-              }
-              setTimeout(() => this.props.toggle(value), 200);
-            }}
-            ></Switch>
+      midSection = (
+        <View style={mainStyles.innerContainer}>
           <Text
-            style={mainStyles.logo}
-            >Hydrate!</Text>
-          <View style={mainStyles.innerContainer}>
-            <Text
-              style={mainStyles.text}
-              >You will not receive reminders.</Text>
-          </View>
+            style={mainStyles.text}
+            >You will not receive reminders.</Text>
         </View>
       );
     }
-
+    return (
+      <View
+        style={style}>
+        <TouchableHighlight
+          style={mainStyles.aboutButton}
+          onPress={() => {
+            this.props.hideHome();
+            setTimeout(this.props.showAbout, 50);
+          }}
+          >
+          <Image
+            source={require('../../../assets/links/info.png')}
+            style={mainStyles.aboutIcon}
+            ></Image>
+        </TouchableHighlight>
+        <Toggle />
+        <Text
+          style={mainStyles.logo}
+          >Hydrate!</Text>
+        {midSection}
+      </View>
+    );
   }
 }
 

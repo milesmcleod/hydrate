@@ -67,9 +67,9 @@ export const mainStyles = StyleSheet.create({
     height: (Styles.DEVICE_WIDTH / 15),
     width: (Styles.DEVICE_WIDTH / 15)
   },
-  switch: {
+  toggle: {
     position: 'absolute',
-    top: (Styles.DEVICE_WIDTH / 30),
+    top: (Styles.DEVICE_WIDTH / 23),
     left: 0,
     transform: [{ scaleX: .7 }, { scaleY: .7 }]
   }
