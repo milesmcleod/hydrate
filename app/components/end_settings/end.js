@@ -64,7 +64,7 @@ class End extends React.Component {
             onValueChange={(itemValue, itemIndex) => {
               this.setState({end: itemValue});
             }}>
-            <Picker.Item label='12:00 AM' value={`${0}`} />
+            <Picker.Item label='12:00 AM' value={`${24}`} />
             <Picker.Item label='1:00 AM' value={`${1}`} />
             <Picker.Item label='2:00 AM' value={`${2}`} />
             <Picker.Item label='3:00 AM' value={`${3}`} />

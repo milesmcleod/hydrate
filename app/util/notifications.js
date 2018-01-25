@@ -28,7 +28,6 @@ class Notifications {
   clearAllNotifications() {
     PushNotificationIOS.cancelLocalNotifications();
     clearTimeout(this.timeoutID);
-    console.log('cleared');
   }
 
   setDayNotifications(interval, startHour, endHour) {
@@ -54,7 +53,7 @@ class Notifications {
         let hour = 12;
         text = String(hour) + text.slice(2) + ' AM';
       } else {
-        text = text + ' PM';
+        text = text + ' AM';
       }
       const offset = new Date().getTimezoneOffset();
       let date = windowStart + (offset * 60 * 1000);
