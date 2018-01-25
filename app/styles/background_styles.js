@@ -4,7 +4,7 @@ import Style from './stylesheet.js';
 
 export const backgroundStyles = StyleSheet.create({
   black: {
-    backgroundColor: '#0068FF',
+    backgroundColor: '#00005e',
     position: 'absolute',
     left: 0,
     right: 0,
@@ -13,7 +13,7 @@ export const backgroundStyles = StyleSheet.create({
   },
   scape: {
     position: 'absolute',
-    backgroundColor: '#0068FF',
+    backgroundColor: '#00005e',
     left: 0,
     right: 0,
     top: 0,

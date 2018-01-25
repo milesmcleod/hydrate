@@ -13,6 +13,8 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* hydrateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* hydrateTests.m */; };
+		0B178690201998B2003D37D8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B17868F201998B2003D37D8 /* Launch Screen.storyboard */; };
+		0B1786CA2019A0C6003D37D8 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B1786C92019A0C6003D37D8 /* launch.png */; };
 		0B3BA8E82015544400665725 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		0B3BA9172015561C00665725 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3BA913201555E100665725 /* libRCTPushNotification.a */; };
 		0B40D9ED01334719842695AF /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6513ECBFFF304E908F3FD41A /* Zocial.ttf */; };
@@ -345,6 +347,8 @@
 		00E356EE1AD99517003FC87E /* hydrateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hydrateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* hydrateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hydrateTests.m; sourceTree = "<group>"; };
+		0B17868F201998B2003D37D8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "hydrate/Images.xcassets/Launch Screen.storyboard"; sourceTree = "<group>"; };
+		0B1786C92019A0C6003D37D8 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch.png; path = ../assets/launch.png; sourceTree = "<group>"; };
 		0B3BA90D201555E100665725 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		0BE7AC0E1FEB5C1B009882B9 /* hydrate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = hydrate.entitlements; path = hydrate/hydrate.entitlements; sourceTree = "<group>"; };
 		0C704C4C59334C6E80F286F7 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
@@ -492,6 +496,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0B1786CB2019A105003D37D8 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				0B1786C92019A0C6003D37D8 /* launch.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		0B3BA8B220154CEB00665725 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,13 +527,6 @@
 				0B3BA915201555E100665725 /* libRCTPushNotification-tvOS.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		0B3BA9162015561C00665725 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		139105B71AF99BAD00B5F7CC /* Products */ = {
@@ -630,13 +635,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				0B17868F201998B2003D37D8 /* Launch Screen.storyboard */,
 				13B07FAE1A68108700A75B9A /* hydrate */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* hydrateTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				0B1786CB2019A105003D37D8 /* images */,
 				9E686A481E41435A9CF9CFED /* Resources */,
 				0B3BA8B220154CEB00665725 /* Recovered References */,
-				0B3BA9162015561C00665725 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -1155,6 +1161,8 @@
 				39C60BF1B29F461CB11774D9 /* FontAwesome.ttf in Resources */,
 				9288023E7D8C4A96896B68DA /* Foundation.ttf in Resources */,
 				25230A9B9B91497DA71CCEB7 /* Ionicons.ttf in Resources */,
+				0B1786CA2019A0C6003D37D8 /* launch.png in Resources */,
+				0B178690201998B2003D37D8 /* Launch Screen.storyboard in Resources */,
 				FA21F12C5EA34BE99AACA68D /* MaterialIcons.ttf in Resources */,
 				EB3E1F849BF344979BBB2386 /* Octicons.ttf in Resources */,
 				1F3F2D9D783F445E9F2412AC /* Roboto_medium.ttf in Resources */,
@@ -1315,7 +1323,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = hydrate/hydrate.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
@@ -1337,7 +1344,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = hydrate/hydrate.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UJ4NV9ZYGU;
