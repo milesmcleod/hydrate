@@ -63,6 +63,7 @@ class Interval extends React.Component {
             onValueChange={(itemValue, itemIndex) => {
               this.setState({interval: itemValue});
             }}>
+            <Picker.Item label="1 Minute" value={`${60 * 1000}`} />
             <Picker.Item label="15 Minutes" value={`${15 * 60 * 1000}`} />
             <Picker.Item label="30 Minutes" value={`${30 * 60 * 1000}`} />
             <Picker.Item label="45 Minutes" value={`${45 * 60 * 1000}`} />

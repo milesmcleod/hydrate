@@ -21,6 +21,9 @@ import {
   receiveEnd,
   toggle
 } from '../../actions/entities_actions.js';
+import {
+  receiveNotificationObject
+} from '../../actions/notification_actions.js';
 import Home from './home.js';
 
 const mapStateToProps = (state) => {
@@ -33,7 +36,8 @@ const mapStateToProps = (state) => {
     fact: state.entities.fact,
     setup: state.ui.showSetup,
     settings: state.ui.showSettings,
-    time: state.ui.time
+    time: state.ui.time,
+    notificationTimeoutID: state.notification.timeoutID
   });
 };
 
@@ -55,7 +59,10 @@ const mapDispatchToProps = (dispatch) => {
     getNewFact: () => getNewFact(),
     receiveInterval: (freq) => dispatch(receiveInterval(freq)),
     receiveStart: (freq) => dispatch(receiveStart(freq)),
-    receiveEnd: (freq) => dispatch(receiveEnd(freq))
+    receiveEnd: (freq) => dispatch(receiveEnd(freq)),
+    receiveNotificationObject: (object) => dispatch(
+      receiveNotificationObject(object)
+    )
   });
 };
 

@@ -28,6 +28,7 @@ class Notifications {
   clearAllNotifications() {
     PushNotificationIOS.cancelLocalNotifications();
     clearTimeout(this.timeoutID);
+    console.log('cleared');
   }
 
   setDayNotifications(interval, startHour, endHour) {
@@ -64,6 +65,7 @@ class Notifications {
         fireDate: date,
         isSilent: true
       });
+      console.log(date);
       windowStart += interval;
     }
   }

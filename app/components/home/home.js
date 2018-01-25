@@ -17,6 +17,7 @@ import {
 import SetupStyles from '../../styles/setup_styles.js';
 import Util from '../../util/util.js';
 import * as Options from '../../util/notification_options.js';
+import Notifications from '../../util/notifications.js';
 
 class Home extends React.Component {
   constructor(props) {
@@ -25,7 +26,8 @@ class Home extends React.Component {
       on: this.props.on,
       interval: undefined,
       start: undefined,
-      end: undefined
+      end: undefined,
+      notificationTimeoutID: this.props.notificationTimeoutID
     };
   }
 
@@ -34,7 +36,8 @@ class Home extends React.Component {
       interval: newProps.interval,
       start: newProps.start,
       end: newProps.end,
-      on: newProps.on
+      on: newProps.on,
+      notificationTimeoutID: newProps.notificationTimeoutID
     });
   }
 
@@ -62,7 +65,31 @@ class Home extends React.Component {
             tintColor={'#FFFFFF'}
             thumbTintColor={'#FFFFFF'}
             value={this.state.on}
-            onValueChange={(value) => this.props.toggle(value)}
+            onValueChange={(value) => {
+              console.log(value);
+              if (value) {
+                let notificationObject = new Notifications(
+                  this.state.notificationTimeoutID
+                );
+                notificationObject.setDayNotifications(
+                  this.state.interval,
+                  this.state.start,
+                  this.state.end);
+                notificationObject.setFutureNotifications(
+                  this.state.interval,
+                  this.state.start,
+                  this.state.end);
+                this.props.receiveNotificationObject(
+                  notificationObject.timeoutID
+                );
+              } else {
+                let notificationObject = new Notifications(
+                  this.state.notificationTimeoutID
+                );
+                notificationObject.clearAllNotifications();
+              }
+              setTimeout(() => this.props.toggle(value), 200);
+            }}
             ></Switch>
           <Text
             style={mainStyles.logo}
@@ -132,7 +159,31 @@ class Home extends React.Component {
             tintColor={'#FFFFFF'}
             thumbTintColor={'#FFFFFF'}
             value={this.state.on}
-            onValueChange={(value) => this.props.toggle(value)}
+            onValueChange={(value) => {
+              console.log(value);
+              if (value) {
+                let notificationObject = new Notifications(
+                  this.state.notificationTimeoutID
+                );
+                notificationObject.setDayNotifications(
+                  this.state.interval,
+                  this.state.start,
+                  this.state.end);
+                notificationObject.setFutureNotifications(
+                  this.state.interval,
+                  this.state.start,
+                  this.state.end);
+                this.props.receiveNotificationObject(
+                  notificationObject.timeoutID
+                );
+              } else {
+                let notificationObject = new Notifications(
+                  this.state.notificationTimeoutID
+                );
+                notificationObject.clearAllNotifications();
+              }
+              setTimeout(() => this.props.toggle(value), 200);
+            }}
             ></Switch>
           <Text
             style={mainStyles.logo}
