@@ -36,7 +36,6 @@ class Notifications {
     const lastMidnight = this.getLastMidnight(now);
     let windowStart = lastMidnight + (startHour * 60 * 60 * 1000);
     const windowEnd = lastMidnight + (endHour * 60 * 60 * 1000);
-    const fireDates = [];
     if (now > windowEnd || interval === 0 ) return;
     if (now > windowStart && now < windowEnd) {
       windowStart = lastMidnight;
@@ -44,9 +43,9 @@ class Notifications {
         windowStart += interval;
       }
     }
-    while (windowStart <= windowEnd) {
+    while (windowStart <= windowEnd) { // this conditional situation is garbage and it needs to be rewritten completely
       let text = new Date(windowStart).toISOString().slice(11, 16);
-      if (Number(text.slice(0, 2)) > 12) {
+      if (Number(text.slice(0, 2)) >= 12) {
         let hour = (Number(text.slice(0, 2)) % 12);
         text = String(hour) + text.slice(2) + ' PM';
       } else if (text.slice(0, 2) === '00') {
