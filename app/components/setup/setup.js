@@ -97,6 +97,7 @@ class Setup extends React.Component {
               <Picker.Item label="2 Hours" value={`${120 * 60 * 1000}`} />
             </Picker>
             <TouchableHighlight
+              underlayColor={"rgba(0, 0, 0, 0)"}
               style={setupStyles.button}
               onPress={() => {
                 this.nextPage();
@@ -109,6 +110,7 @@ class Setup extends React.Component {
           </View>
           <View style={setupStyles.scrollContainer}>
             <TouchableHighlight
+              underlayColor={"rgba(0, 0, 0, 0)"}
               style={setupStyles.button}
               onPress={() => {
                 this.prevPage();
@@ -154,6 +156,7 @@ class Setup extends React.Component {
               <Picker.Item label='11:00 PM' value={`${23}`} />
             </Picker>
             <TouchableHighlight
+              underlayColor={"rgba(0, 0, 0, 0)"}
               style={setupStyles.button}
               onPress={() => {
                 this.nextPage();
@@ -166,6 +169,7 @@ class Setup extends React.Component {
           </View>
           <View style={setupStyles.scrollContainer}>
             <TouchableHighlight
+              underlayColor={"rgba(0, 0, 0, 0)"}
               style={setupStyles.button}
               onPress={() => {
                 this.prevPage();
