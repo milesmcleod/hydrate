@@ -29,7 +29,7 @@ class Notifications {
     const now = this.getCurrentMoment();
     const lastMidnight = this.getLastMidnight(now);
     const windowStart = lastMidnight + (startHour * 60 * 60 * 1000);
-    const windowEnd = lastMidnight + (endHour * 60 * 60 * 1000);
+    let windowEnd = lastMidnight + (endHour * 60 * 60 * 1000);
     const msPerDay = (24 * 60 * 60 * 1000);
 
     // i collect every fire date in the next 24 hours and then
@@ -42,6 +42,7 @@ class Notifications {
     const fireDates = {};
 
     let fireDate = windowStart + interval;
+    if (windowEnd < windowStart) windowEnd += msPerDay;
     while (fireDate <= windowEnd) {
       let text = new Date(fireDate).toISOString().slice(11, 16);
       if (Number(text.slice(0, 2)) >= 12) {
