@@ -51,6 +51,14 @@ class Setup extends React.Component {
     this.props.receiveNotificationObject(notificationObject.timeoutID);
   }
 
+  nextPage() {
+    this.swiper.scrollBy(1);
+  }
+
+  prevPage() {
+    this.swiper.scrollBy(-1);
+  }
+
   render() {
     return (
       <Modal
@@ -59,6 +67,9 @@ class Setup extends React.Component {
         visible={this.props.show}
         style={setupStyles.container}>
         <Swiper
+          ref={(component) => {
+            this.swiper = component;
+          }}
           showsButtons={true}
           horizontal={false}
           loop={false}
@@ -68,6 +79,9 @@ class Setup extends React.Component {
           }}
           activeDotColor={'rgba(255, 255, 255, 0.98)'}
           dotColor={'rgba(219, 219, 219, 0.8)'}>
+          <View></View>
+          <View></View>
+          <View></View>
         </Swiper>
 
     </Modal>
