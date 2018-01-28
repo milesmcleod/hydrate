@@ -12,23 +12,22 @@ export const aboutStyles = {
     flex: 1,
     flexDirection: 'column',
     alignContent: 'center',
-    justifyContent: 'space-around'
   },
   textTop: {
     fontFamily: 'AvenirNext-DemiBold',
     color: '#FFFFFF',
-    fontSize: Styles.FONT_SIZE_SMALLER * 1.1,
+    fontSize: Styles.FONT_SIZE_SMALLER * 1.2,
     marginLeft: (2 * Styles.DEVICE_WIDTH / 10),
     marginRight: (2 * Styles.DEVICE_WIDTH / 10),
-    marginTop: (2 * Styles.DEVICE_HEIGHT / 15),
+    marginTop: (Styles.DEVICE_HEIGHT / 5),
   },
   text: {
     fontFamily: 'AvenirNext-DemiBold',
     color: '#FFFFFF',
-    fontSize: Styles.FONT_SIZE_SMALLER * 1.1,
+    fontSize: Styles.FONT_SIZE_SMALLER * 1.2,
     marginLeft: (2 * Styles.DEVICE_WIDTH / 10),
     marginRight: (2 * Styles.DEVICE_WIDTH / 10),
-    marginTop: (Styles.DEVICE_HEIGHT / 14),
+    marginTop: (Styles.DEVICE_HEIGHT / 10),
   },
   button: {
     alignItems: 'center',
