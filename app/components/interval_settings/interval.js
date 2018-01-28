@@ -33,11 +33,9 @@ class Interval extends React.Component {
       .then(() => this.props.receiveInterval(interval))
       .then(() => this.props.hideInterval());
     }
-    let notificationObject = new Notifications(this.props.notificationTimeoutID);
-    notificationObject.clearAllNotifications();
-    notificationObject.setDayNotifications(interval, start, end);
-    notificationObject.setFutureNotifications(interval, start, end);
-    this.props.receiveNotificationObject(notificationObject.timeoutID);
+    const notifications = new Notifications();
+    notifications.clearAllNotifications();
+    notifications.setNotifications(interval, start, end);
   }
 
   componentWillReceiveProps(newProps) {

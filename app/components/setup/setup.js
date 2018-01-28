@@ -44,11 +44,9 @@ class Setup extends React.Component {
       .then(() => this.props.showHome())
       .done();
     }
-    let notificationObject = new Notifications();
-    notificationObject.clearAllNotifications();
-    notificationObject.setDayNotifications(interval, start, end);
-    notificationObject.setFutureNotifications(interval, start, end);
-    this.props.receiveNotificationObject(notificationObject.timeoutID);
+    const notifications = new Notifications();
+    notifications.clearAllNotifications();
+    notifications.setNotifications(interval, start, end);
   }
 
   nextPage() {

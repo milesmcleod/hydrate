@@ -2,12 +2,7 @@ import PushNotificationIOS from 'react-native/Libraries/PushNotificationIOS/Push
 
 class Notifications {
 
-  constructor(timeoutID) {
-    if (timeoutID) {
-      this.timeoutID = timeoutID;
-    } else {
-      this.timeoutID = undefined;
-    }
+  constructor() {
   }
 
   getCurrentMoment() {
@@ -27,24 +22,28 @@ class Notifications {
 
   clearAllNotifications() {
     PushNotificationIOS.cancelLocalNotifications();
-    clearTimeout(this.timeoutID);
   }
 
-  setDayNotifications(interval, startHour, endHour) {
+  setNotifications(interval, startHour, endHour) {
     interval = Number(interval);
     const now = this.getCurrentMoment();
     const lastMidnight = this.getLastMidnight(now);
-    let windowStart = lastMidnight + (startHour * 60 * 60 * 1000);
+    const windowStart = lastMidnight + (startHour * 60 * 60 * 1000);
     const windowEnd = lastMidnight + (endHour * 60 * 60 * 1000);
-    if (now > windowEnd || interval === 0 ) return;
-    if (now > windowStart && now < windowEnd) {
-      windowStart = lastMidnight;
-      while (!(windowStart > now)) {
-        windowStart += interval;
-      }
-    }
-    while (windowStart <= windowEnd) { // this conditional situation is garbage and it needs to be rewritten completely
-      let text = new Date(windowStart).toISOString().slice(11, 16);
+    const msPerDay = (24 * 60 * 60 * 1000);
+
+    // i collect every fire date in the next 24 hours and then
+    // set notifications for each of those moments with repeatInterval: 'day'
+    // set in the options object for the notification.
+
+    const startOffset = (windowStart % msPerDay);
+    const endOffset = (msPerDay - (windowEnd % msPerDay));
+    const timeZoneOffset = new Date().getTimezoneOffset();
+    const fireDates = {};
+
+    let fireDate = windowStart + interval;
+    while (fireDate <= windowEnd) {
+      let text = new Date(fireDate).toISOString().slice(11, 16);
       if (Number(text.slice(0, 2)) >= 12) {
         let hour = (Number(text.slice(0, 2)) % 12);
         text = String(hour) + text.slice(2) + ' PM';
@@ -54,35 +53,29 @@ class Notifications {
       } else {
         text = text + ' AM';
       }
-      const offset = new Date().getTimezoneOffset();
-      let date = windowStart + (offset * 60 * 1000);
-      date = new Date(date).toISOString();
-      PushNotificationIOS.scheduleLocalNotification({
+      const notificationOptions = {
         alertTitle: text,
-        alertBody: "Time to drink water!", // (required)
-        fireDate: date,
-        isSilent: true
-      });
-      console.log(date);
-      windowStart += interval;
+        alertBody: "Time to drink water!",
+        // fireDate: date,
+        isSilent: true,
+        repeatInterval: 'day'
+      };
+      fireDates[fireDate] = notificationOptions;
+      fireDate += interval;
     }
-  }
 
-  setFutureNotifications(interval, startHour, endHour) {
-    this.setMidnightInterval(() => {
-      this.setDayNotifications(interval, startHour, endHour);
-      this.setFutureNotifications(interval, startHour, endHour);
+    Object.keys(fireDates).forEach((moment) => {
+      const options = fireDates[moment];
+      moment = Number(moment);
+      if (moment <= now) {
+        moment += msPerDay;
+      }
+      let date = moment + (timeZoneOffset * 60 * 1000);
+      date = new Date(date).toISOString();
+      options.fireDate = date;
+      PushNotificationIOS.scheduleLocalNotification(options);
+      console.log(options);
     });
-  }
-
-  setMidnightInterval(callback) {
-    const date = new Date();
-    const offset = date.getTimezoneOffset();
-    const currentDate = new Date(Date.now() - (offset * 60 * 1000)); //date
-    const currentMoment = currentDate.getTime(); // milliseconds
-    const msPerDay = (24 * 60 * 60 * 1000);
-    const msTilMidnight = msPerDay - (currentMoment % msPerDay);
-    this.timeoutID = setTimeout(callback, msTilMidnight);
   }
 
 }
