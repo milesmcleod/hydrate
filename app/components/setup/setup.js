@@ -17,6 +17,8 @@ import { setupStyles } from '../../styles/setup_styles.js';
 import * as Options from '../../util/notification_options.js';
 import Notifications from '../../util/notifications.js';
 
+import Swiper from 'react-native-swiper';
+
 class Setup extends React.Component {
   constructor(props) {
     super(props);
@@ -56,102 +58,18 @@ class Setup extends React.Component {
         animationType={"fade"}
         visible={this.props.show}
         style={setupStyles.container}>
-        <ScrollView style={setupStyles.scrollContainer}>
-          <Text
-            style={setupStyles.text}
-            >Select an interval for reminders:{'\n'}{'\n'}&#8595;</Text>
-          <Picker
-            itemStyle={setupStyles.picker}
-            selectedValue={this.state.interval}
-            onValueChange={(itemValue, itemIndex) => {
-              this.setState({interval: itemValue});
-            }}>
-            <Picker.Item label="15 Minutes" value={`${15 * 60 * 1000}`} />
-            <Picker.Item label="30 Minutes" value={`${30 * 60 * 1000}`} />
-            <Picker.Item label="45 Minutes" value={`${45 * 60 * 1000}`} />
-            <Picker.Item label="1 Hour" value={`${60 * 60 * 1000}`} />
-            <Picker.Item label="1.5 Hours" value={`${90 * 60 * 1000}`} />
-            <Picker.Item label="2 Hours" value={`${120 * 60 * 1000}`} />
-          </Picker>
-          <Text
-            style={setupStyles.text}
-            >Select a start time for reminders:{'\n'}{'\n'}&#8595;</Text>
-          <Picker
-            itemStyle={setupStyles.picker}
-            selectedValue={this.state.start}
-            onValueChange={(itemValue, itemIndex) => {
-              this.setState({start: itemValue});
-            }}>
-            <Picker.Item label='12:00 AM' value={`${0}`} />
-            <Picker.Item label='1:00 AM' value={`${1}`} />
-            <Picker.Item label='2:00 AM' value={`${2}`} />
-            <Picker.Item label='3:00 AM' value={`${3}`} />
-            <Picker.Item label='4:00 AM' value={`${4}`} />
-            <Picker.Item label='5:00 AM' value={`${5}`} />
-            <Picker.Item label='6:00 AM' value={`${6}`} />
-            <Picker.Item label='7:00 AM' value={`${7}`} />
-            <Picker.Item label='8:00 AM' value={`${8}`} />
-            <Picker.Item label='9:00 AM' value={`${9}`} />
-            <Picker.Item label='10:00 AM' value={`${10}`} />
-            <Picker.Item label='11:00 AM' value={`${11}`} />
-            <Picker.Item label='12:00 PM' value={`${12}`} />
-            <Picker.Item label='1:00 PM' value={`${13}`} />
-            <Picker.Item label='2:00 PM' value={`${14}`} />
-            <Picker.Item label='3:00 PM' value={`${15}`} />
-            <Picker.Item label='4:00 PM' value={`${16}`} />
-            <Picker.Item label='5:00 PM' value={`${17}`} />
-            <Picker.Item label='6:00 PM' value={`${18}`} />
-            <Picker.Item label='7:00 PM' value={`${19}`} />
-            <Picker.Item label='8:00 PM' value={`${20}`} />
-            <Picker.Item label='9:00 PM' value={`${21}`} />
-            <Picker.Item label='10:00 PM' value={`${22}`} />
-            <Picker.Item label='11:00 PM' value={`${23}`} />
-          </Picker>
-          <Text
-            style={setupStyles.text}
-            >Select an end time for reminders:{'\n'}{'\n'}&#8595;</Text>
-          <Picker
-            itemStyle={setupStyles.picker}
-            selectedValue={this.state.end}
-            onValueChange={(itemValue, itemIndex) => {
-              this.setState({end: itemValue});
-            }}>
-            <Picker.Item label='12:00 AM' value={`${0}`} />
-            <Picker.Item label='1:00 AM' value={`${1}`} />
-            <Picker.Item label='2:00 AM' value={`${2}`} />
-            <Picker.Item label='3:00 AM' value={`${3}`} />
-            <Picker.Item label='4:00 AM' value={`${4}`} />
-            <Picker.Item label='5:00 AM' value={`${5}`} />
-            <Picker.Item label='6:00 AM' value={`${6}`} />
-            <Picker.Item label='7:00 AM' value={`${7}`} />
-            <Picker.Item label='8:00 AM' value={`${8}`} />
-            <Picker.Item label='9:00 AM' value={`${9}`} />
-            <Picker.Item label='10:00 AM' value={`${10}`} />
-            <Picker.Item label='11:00 AM' value={`${11}`} />
-            <Picker.Item label='12:00 PM' value={`${12}`} />
-            <Picker.Item label='1:00 PM' value={`${13}`} />
-            <Picker.Item label='2:00 PM' value={`${14}`} />
-            <Picker.Item label='3:00 PM' value={`${15}`} />
-            <Picker.Item label='4:00 PM' value={`${16}`} />
-            <Picker.Item label='5:00 PM' value={`${17}`} />
-            <Picker.Item label='6:00 PM' value={`${18}`} />
-            <Picker.Item label='7:00 PM' value={`${19}`} />
-            <Picker.Item label='8:00 PM' value={`${20}`} />
-            <Picker.Item label='9:00 PM' value={`${21}`} />
-            <Picker.Item label='10:00 PM' value={`${22}`} />
-            <Picker.Item label='11:00 PM' value={`${23}`} />
-          </Picker>
-          <TouchableHighlight
-            style={setupStyles.button}
-            onPress={() => {
-              this.saveDetails();
-            }}
-            >
-            <Text
-              style={setupStyles.text}
-              >Save</Text>
-          </TouchableHighlight>
-        </ScrollView>
+        <Swiper
+          showsButtons={true}
+          horizontal={false}
+          loop={false}
+          activeDotStyle={{
+            width: 12, height: 12,borderRadius: 6,
+            marginTop: 6, marginBottom: 6
+          }}
+          activeDotColor={'rgba(255, 255, 255, 0.98)'}
+          dotColor={'rgba(219, 219, 219, 0.8)'}>
+        </Swiper>
+
     </Modal>
     );
   }

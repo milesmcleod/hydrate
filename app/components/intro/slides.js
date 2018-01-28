@@ -28,7 +28,16 @@ class Slides extends React.Component {
         transparent
         animationType={"fade"}
         visible={this.props.show}>
-        <Swiper showsButtons={false}>
+        <Swiper
+          showsButtons={false}
+          loop={false}
+          activeDotStyle={{
+            width: 12, height: 12,borderRadius: 6,
+            marginTop: 6, marginBottom: 6
+          }}
+          activeDotColor={'rgba(255, 255, 255, 0.98)'}
+          dotColor={'rgba(219, 219, 219, 0.8)'}
+          >
           <Slide1 />
           <Slide2 />
           <Slide3
