@@ -16,6 +16,8 @@ export const setupStyles = StyleSheet.create({
     right: 0,
     top: 0,
     bottom: 0,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
     padding: Styles.DEVICE_WIDTH / 8,
     backgroundColor: 'rgba(0, 0, 0, 0.75)',
     borderRadius: 0,
@@ -24,30 +26,37 @@ export const setupStyles = StyleSheet.create({
     fontSize: Styles.FONT_SIZE_SMALL,
     textAlign: 'center',
     color: '#FFFFFF',
-    margin: 5,
+    fontFamily: 'AvenirNext-DemiBold',
+  },
+  arrow: {
+    fontSize: Styles.FONT_SIZE,
+    textAlign: 'center',
+    color: '#FFFFFF',
     fontFamily: 'AvenirNext-DemiBold',
   },
   picker: {
     color: '#FFFFFF',
-    marginBottom: 20,
-    borderRadius: 2,
-    borderWidth: 1,
+    borderRadius: 4,
+    borderWidth: 2,
     borderColor: '#ffffff',
-  },
-  formInput: {
-    height: 26,
-    fontSize: 13,
-    borderWidth: 1,
-    borderColor: "#000000",
-    opacity: 0.5
   },
   button: {
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0)',
+    padding: (Styles.DEVICE_WIDTH / 30)
+  },
+  saveButton: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 1)',
     borderRadius: 2,
     borderWidth: 1,
     borderColor: '#ffffff',
-    padding: (Styles.DEVICE_WIDTH / 30),
-    marginBottom: (Styles.DEVICE_HEIGHT / 6)
+    padding: (Styles.DEVICE_WIDTH / 30)
+  },
+  buttonText: {
+    fontSize: Styles.FONT_SIZE_SMALL,
+    textAlign: 'center',
+    color: '#000000',
+    fontFamily: 'AvenirNext-DemiBold',
   }
 });
