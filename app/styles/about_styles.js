@@ -11,7 +11,8 @@ export const aboutStyles = {
     height: Styles.DEVICE_HEIGHT,
     flex: 1,
     flexDirection: 'column',
-    alignItems: 'center'
+    alignContent: 'center',
+    justifyContent: 'space-around'
   },
   textTop: {
     fontFamily: 'AvenirNext-DemiBold',
@@ -33,7 +34,7 @@ export const aboutStyles = {
     alignItems: 'center',
     backgroundColor: '#000000',
     borderRadius: 1,
-    padding: 10,
+    padding: Styles.DEVICE_HEIGHT / 35,
     position: 'absolute',
     bottom: (Styles.DEVICE_WIDTH / 10),
     left: (2 * Styles.DEVICE_WIDTH / 10),
