@@ -3,6 +3,7 @@ import PushNotificationIOS from 'react-native/Libraries/PushNotificationIOS/Push
 class Notifications {
 
   constructor() {
+
   }
 
   getCurrentMoment() {
@@ -45,8 +46,12 @@ class Notifications {
     if (windowEnd < windowStart) windowEnd += msPerDay;
     while (fireDate <= windowEnd) {
       let text = new Date(fireDate).toISOString().slice(11, 16);
-      if (Number(text.slice(0, 2)) >= 12) {
+      console.log(text);
+      if (Number(text.slice(0, 2)) > 12) {
         let hour = (Number(text.slice(0, 2)) % 12);
+        text = String(hour) + text.slice(2) + ' PM';
+      } else if (text.slice(0, 2) === '12') {
+        let hour = 12;
         text = String(hour) + text.slice(2) + ' PM';
       } else if (text.slice(0, 2) === '00') {
         let hour = 12;
@@ -61,6 +66,7 @@ class Notifications {
         isSilent: true,
         repeatInterval: 'day'
       };
+      console.log(text);
       fireDates[fireDate] = notificationOptions;
       fireDate += interval;
     }

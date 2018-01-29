@@ -43,19 +43,14 @@ class Toggle extends React.Component {
         onValueChange={(value) => {
           console.log(value);
           if (value) {
-            let notificationObject = new Notifications(
-              this.state.notificationTimeoutID
+            let notifications = new Notifications();
+            notifications.setNotifications(
+              this.state.interval,
+              this.state.start,
+              this.state.end
             );
-            notificationObject.setDayNotifications(
-              this.state.interval,
-              this.state.start,
-              this.state.end);
-            notificationObject.setFutureNotifications(
-              this.state.interval,
-              this.state.start,
-              this.state.end);
             this.props.receiveNotificationObject(
-              notificationObject.timeoutID
+              notifications.timeoutID
             );
           } else {
             let notificationObject = new Notifications(
