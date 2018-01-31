@@ -67,6 +67,8 @@ class Interval extends React.Component {
             <Picker.Item label="1 Hour" value={`${60 * 60 * 1000}`} />
             <Picker.Item label="1.5 Hours" value={`${90 * 60 * 1000}`} />
             <Picker.Item label="2 Hours" value={`${120 * 60 * 1000}`} />
+            <Picker.Item label="3 Hours" value={`${180 * 60 * 1000}`} />
+            <Picker.Item label="4 Hours" value={`${240 * 60 * 1000}`} />
           </Picker>
           <TouchableHighlight
             style={settingsStyles.button}

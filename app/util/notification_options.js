@@ -5,7 +5,9 @@ export const INTERVALS = {
   2700000: '45 Minutes',
   3600000: '1 Hour',
   5400000: '1.5 Hours',
-  7200000: '2 Hours'
+  7200000: '2 Hours',
+  10800000: '3 Hours',
+  14400000: '4 Hours'
 };
 
 export const HOURS = {
